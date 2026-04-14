@@ -688,11 +688,17 @@
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中...';
 
+    // URLエンコード形式で送信（GASのe.parameterで確実に受け取るため）
     var formData = new FormData(form);
+    var params = new URLSearchParams();
+    formData.forEach(function (value, key) {
+      params.append(key, value);
+    });
 
     fetch(form.action, {
       method: 'POST',
-      body: formData
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
     })
     .then(function () {
       // Show success
