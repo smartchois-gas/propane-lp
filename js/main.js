@@ -194,41 +194,25 @@
       step2.style.display = 'none';
     }
 
-    // Next button (step 1 -> step 2): keep step1 visible, slide step 2 in
+    // Next button (step 1 -> step 2): scroll to step 2
     nextBtn1.addEventListener('click', function () {
-      // Hide step 1 content smoothly
-      step1.style.maxHeight = step1.scrollHeight + 'px';
-      requestAnimationFrame(function () {
-        step1.classList.add('is-collapsed');
-        step1.style.maxHeight = '0';
-      });
-
-      // Show step 2
-      step2.style.display = 'block';
-      step2.classList.remove('is-collapsed');
-      step2.style.maxHeight = '0';
-      step2.style.opacity = '0';
-      requestAnimationFrame(function () {
-        step2.style.maxHeight = step2.scrollHeight + 200 + 'px';
-        step2.style.opacity = '1';
-      });
-
-      // Reveal Q1 immediately, Q2 hidden initially
-      if (q1) { q1.classList.remove('is-hidden'); q1.style.maxHeight = q1.scrollHeight + 'px'; }
-
       // Update progress
       var steps = document.querySelectorAll('.wizard__progress-step');
       steps[0].classList.remove('is-active');
       steps[0].classList.add('is-complete');
       steps[1].classList.add('is-active');
       progressBar.style.width = '100%';
+
+      // Scroll to step 2
+      var headerHeight = document.getElementById('header').offsetHeight;
+      var targetPos = step2.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+      window.scrollTo({ top: targetPos, behavior: 'smooth' });
     });
 
     // Calculate results
     calcBtn.addEventListener('click', function () {
       var bill = parseInt(document.getElementById('wizardBill').value) || 0;
-      var billDetail = parseInt(document.getElementById('wizardBillDetail').value) || 0;
-      var usedBill = billDetail > 0 ? billDetail : bill;
+      var usedBill = bill;
 
       if (usedBill <= 0) {
         alert('ガス代を入力してください');
@@ -239,19 +223,9 @@
       var afterBill = Math.round(usedBill * (1 - reductionRate));
       var annualSavings = (usedBill - afterBill) * 12;
 
-      // Collapse step2 smoothly
-      step2.classList.add('is-collapsed');
-      step2.style.maxHeight = '0';
-      step2.style.opacity = '0';
-
-      // Show result with celebration
-      setTimeout(function () {
-        step2.style.display = 'none';
-        resultDiv.style.display = 'block';
-        resultDiv.classList.add('is-celebrating');
-        resultDiv.style.maxHeight = resultDiv.scrollHeight + 'px';
-        resultDiv.style.opacity = '1';
-      }, 400);
+      // Show result
+      resultDiv.style.display = 'block';
+      resultDiv.classList.add('is-celebrating');
 
       document.getElementById('resultPercent').textContent = Math.round(reductionRate * 100);
       document.getElementById('resultBefore').textContent = '¥' + usedBill.toLocaleString();

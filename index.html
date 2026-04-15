@@ -108,8 +108,8 @@
             <button class="btn btn--primary btn--large wizard__next-btn" id="wizardNext1" style="display:none;">次へ進む</button>
           </div>
 
-          <!-- Step 2: Usage Questions -->
-          <div class="wizard__step" id="wizardStep2" style="display:none;">
+          <!-- Step 2: Usage Questions (always visible after step 1) -->
+          <div class="wizard__step" id="wizardStep2">
             <div class="wizard__question" id="wizardQ1">
               <h3 class="wizard__step-title">どちらでガスをお使いですか？（複数選択可）</h3>
               <div class="wizard__checkbox-group">
@@ -124,14 +124,6 @@
               <div class="wizard__input-wrap">
                 <span class="wizard__input-prefix">¥</span>
                 <input type="number" id="wizardBill" class="wizard__input" placeholder="例: 8000" min="0">
-                <span class="wizard__input-suffix">/月</span>
-              </div>
-            </div>
-            <div class="wizard__question" id="wizardQ3">
-              <h3 class="wizard__step-title">さらに詳しく教えていただけますか？</h3>
-              <div class="wizard__input-wrap">
-                <span class="wizard__input-prefix">¥</span>
-                <input type="number" id="wizardBillDetail" class="wizard__input" placeholder="例: 8500" min="0">
                 <span class="wizard__input-suffix">円/月</span>
               </div>
             </div>
