@@ -185,29 +185,7 @@
     var q2 = document.getElementById('wizardQ2');
     var q3 = document.getElementById('wizardQ3');
 
-    // Step 2 initially hidden with smooth transition
-    if (step2) {
-      step2.style.maxHeight = '0';
-      step2.style.overflow = 'hidden';
-      step2.classList.add('is-collapsed');
-      step2.removeAttribute('style');
-      step2.style.display = 'none';
-    }
-
-    // Next button (step 1 -> step 2): scroll to step 2
-    nextBtn1.addEventListener('click', function () {
-      // Update progress
-      var steps = document.querySelectorAll('.wizard__progress-step');
-      steps[0].classList.remove('is-active');
-      steps[0].classList.add('is-complete');
-      steps[1].classList.add('is-active');
-      progressBar.style.width = '100%';
-
-      // Scroll to step 2
-      var headerHeight = document.getElementById('header').offsetHeight;
-      var targetPos = step2.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-      window.scrollTo({ top: targetPos, behavior: 'smooth' });
-    });
+    // Step 2 is always visible (no hiding)
 
     // Calculate results
     calcBtn.addEventListener('click', function () {
