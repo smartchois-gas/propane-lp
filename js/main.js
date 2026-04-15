@@ -180,12 +180,10 @@
     });
 
     // --- Smooth Step Transitions ---
-    // Initialize Q2 and Q3 as hidden with accordion reveal
+    // Show all questions immediately (no accordion - all visible)
     var q1 = document.getElementById('wizardQ1');
     var q2 = document.getElementById('wizardQ2');
     var q3 = document.getElementById('wizardQ3');
-    if (q2) { q2.classList.add('is-hidden'); q2.style.maxHeight = '0'; }
-    if (q3) { q3.classList.add('is-hidden'); q3.style.maxHeight = '0'; }
 
     // Step 2 initially hidden with smooth transition
     if (step2) {
@@ -217,50 +215,6 @@
 
       // Reveal Q1 immediately, Q2 hidden initially
       if (q1) { q1.classList.remove('is-hidden'); q1.style.maxHeight = q1.scrollHeight + 'px'; }
-
-      // Add "Next" button inside Q1 for revealing Q2
-      if (q1 && !document.getElementById('q1NextBtn')) {
-        var q1Btn = document.createElement('button');
-        q1Btn.id = 'q1NextBtn';
-        q1Btn.className = 'btn btn--primary btn--large wizard__next-btn';
-        q1Btn.textContent = '次へ';
-        q1Btn.style.marginTop = '12px';
-        q1.appendChild(q1Btn);
-        q1Btn.addEventListener('click', function () {
-          // Reveal Q2
-          if (q2) {
-            q2.classList.remove('is-hidden');
-            q2.style.maxHeight = q2.scrollHeight + 'px';
-          }
-          q1Btn.style.display = 'none';
-          // Update step2 max-height
-          setTimeout(function () {
-            step2.style.maxHeight = step2.scrollHeight + 200 + 'px';
-          }, 100);
-        });
-      }
-
-      // Debounce reveal Q3 after Q2 bill input
-      var wizardBillInput = document.getElementById('wizardBill');
-      var q3Revealed = false;
-      if (wizardBillInput) {
-        var debounceTimer;
-        wizardBillInput.addEventListener('input', function () {
-          clearTimeout(debounceTimer);
-          debounceTimer = setTimeout(function () {
-            if (!q3Revealed && wizardBillInput.value) {
-              q3Revealed = true;
-              if (q3) {
-                q3.classList.remove('is-hidden');
-                q3.style.maxHeight = q3.scrollHeight + 'px';
-              }
-              setTimeout(function () {
-                step2.style.maxHeight = step2.scrollHeight + 200 + 'px';
-              }, 100);
-            }
-          }, 500);
-        });
-      }
 
       // Update progress
       var steps = document.querySelectorAll('.wizard__progress-step');
