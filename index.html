@@ -6,14 +6,14 @@
   <title>LPガス料金が最大50%安くなる | スマートチョイス - LPガス切替の総合代理店</title>
   <meta name="description" content="LPガスの料金を最大50%削減。累計13万件の実績。1年間の料金保障・料金交渉サービス付き。面倒な手続き不要、初期費用0円。スマートチョイスの無料診断で今すぐチェック。">
   <meta property="og:title" content="LPガス料金が最大50%安くなる | スマートチョイス">
-  <meta property="og:description" content="LPガスの料金を最大50%削減。累計13万件の実績。1年間の料金保障・料金交渉サービス付き。面倒な手続き不要、初期費用0円。スマートチョイスの無料診断で今すぐチェック。">
+  <meta property="og:description" content="LPガスの料金を最大50%削減。累計13万件の実績。1年間の料金保障・料金交渉サービス付き。面倒な手続き不要、初期費用0円。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://smart-choice.jp">
   <meta property="og:site_name" content="スマートチョイス">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LPガス料金が最大50%安くなる | スマートチョイス">
-  <meta name="twitter:description" content="LPガスの料金を最大50%削減。累計13万件の実績。1年間の料金保障・料金交渉サービス付き。面倒な手続き不要、初期費用0円。スマートチョイスの無料診断で今すぐチェック。">
+  <meta name="twitter:description" content="LPガスの料金を最大50%削減。累計13万件の実績。1年間の料金保障・料金交渉サービス付き。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -33,17 +33,18 @@
   <header class="header" id="header">
     <div class="header__inner container">
       <a href="#" class="header__logo" aria-label="スマートチョイス トップへ">
+        <span class="header__logo-icon">&#x26A1;</span>
         <span class="header__logo-main">スマートチョイス</span>
-        <span class="header__logo-sep">|</span>
         <span class="header__logo-tagline">LPガス切替の総合代理店</span>
       </a>
       <nav class="header__nav" id="nav" aria-label="メインナビゲーション">
         <ul class="header__nav-list">
           <li><a href="#wizard" class="header__nav-link">無料診断</a></li>
-          <li><a href="#why" class="header__nav-link">なぜ見直し？</a></li>
+          <li><a href="#advantages" class="header__nav-link">選ばれる理由</a></li>
           <li><a href="#guarantee" class="header__nav-link">料金保障</a></li>
+          <li><a href="#faq" class="header__nav-link">よくある質問</a></li>
           <li><a href="#form" class="header__nav-link">お問い合わせ</a></li>
-          <li><a href="#wizard" class="header__nav-cta">60秒で無料診断する</a></li>
+          <li><a href="#wizard" class="header__nav-cta">60秒で無料診断</a></li>
         </ul>
       </nav>
       <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
@@ -58,100 +59,140 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__content">
-          <div class="hero__badge-top">&#x1F525; 累計13万件の切替実績</div>
-          <h1 class="hero__title">同じ使用量でも、<br><em class="hero__highlight">会社によって料金が2倍近く</em><br>変わります</h1>
-          <p class="hero__subtitle">スマートチョイスの無料診断で、あなたのガス代がいくら安くなるかチェックしましょう</p>
-          <div class="hero__badges">
-            <span class="hero__badge-pill">&#x1F4B0; 最大50%削減</span>
-            <span class="hero__badge-pill">&#x1F4CB; 面倒な手続き不要</span>
-            <span class="hero__badge-pill">&#x1F6E1;&#xFE0F; 1年間料金保障付き</span>
+          <div class="hero__counter-badge">
+            <span class="hero__counter-icon">&#x1F525;</span>
+            <span>累計</span>
+            <span class="hero__counter-number" id="heroCounter" data-target="130000">0</span>
+            <span>件+の切替実績</span>
           </div>
-          <a href="#wizard" class="btn btn--primary btn--large hero__cta pulse-btn">60秒で節約額を診断する（無料）</a>
-          <p class="hero__note">※ しつこい営業は一切行いません</p>
+          <h1 class="hero__title">
+            あなたのガス代、<br>
+            <span class="hero__title-gradient">最大50%</span>安くなります
+          </h1>
+          <p class="hero__subtitle">同じ使用量でも、ガス会社によって料金は2倍近く変わります。<br class="hide-sp">スマートチョイスなら、面倒な手続き不要・初期費用0円で切り替えできます。</p>
+          <div class="hero__badges">
+            <div class="hero__badge">
+              <span class="hero__badge-icon">&#x1F4B0;</span>
+              <span>最大50%削減</span>
+            </div>
+            <div class="hero__badge">
+              <span class="hero__badge-icon">&#x1F4CB;</span>
+              <span>手続き不要</span>
+            </div>
+            <div class="hero__badge">
+              <span class="hero__badge-icon">&#x1F6E1;&#xFE0F;</span>
+              <span>1年間料金保障</span>
+            </div>
+          </div>
+          <a href="#wizard" class="btn btn--hero hero__cta">
+            <span class="btn__shimmer"></span>
+            60秒で節約額を診断する（無料）
+          </a>
+          <p class="hero__note">&#x1F6E1;&#xFE0F; しつこい営業は一切行いません</p>
         </div>
       </div>
-      <div class="hero__scroll-indicator" aria-hidden="true">
-        <span class="hero__scroll-arrow"></span>
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-dot"></span>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <h2 class="section-title reveal">こんなお悩みありませんか？</h2>
+        <div class="problem__grid">
+          <div class="problem__card reveal reveal-delay-1">
+            <div class="problem__bubble">
+              <p>毎月のガス代が高い気がするけど、<strong>比較する方法がわからない</strong>…</p>
+            </div>
+          </div>
+          <div class="problem__card reveal reveal-delay-2">
+            <div class="problem__bubble">
+              <p>ガス会社から値上げ通知が来たけど、<strong>本当に妥当なの？</strong></p>
+            </div>
+          </div>
+          <div class="problem__card reveal reveal-delay-3">
+            <div class="problem__bubble">
+              <p><strong>切り替えたいけど</strong>、手続きが面倒そうで踏み出せない…</p>
+            </div>
+          </div>
+          <div class="problem__card reveal reveal-delay-4">
+            <div class="problem__bubble">
+              <p>安くなっても<strong>すぐに値上げ</strong>されるのでは？と不安…</p>
+            </div>
+          </div>
+        </div>
+        <div class="problem__conclusion reveal">
+          <p>&#x1F449; 一つでも当てはまった方は、<strong>今すぐガス代の見直し</strong>をおすすめします</p>
+        </div>
       </div>
     </section>
 
     <!-- Wizard Section -->
     <section class="wizard" id="wizard">
       <div class="container">
-        <h2 class="section-title reveal">2ステップで<span class="text-orange">節約額</span>を確認</h2>
-        <p class="section-subtitle reveal">ガス会社・使用量を入力するだけで、あなたの節約可能額がわかります</p>
+        <h2 class="section-title reveal">かんたん<span class="text-gradient">無料診断</span></h2>
+        <p class="section-subtitle reveal">3つの質問に答えるだけで、あなたの節約可能額がわかります</p>
 
-        <div class="wizard__progress reveal">
-          <div class="wizard__progress-step is-active" data-step="1">
-            <div class="wizard__progress-dot">1</div>
-            <span class="wizard__progress-label">会社選択</span>
-          </div>
-          <div class="wizard__progress-connector">
-            <div class="wizard__progress-bar" id="wizardProgressBar"></div>
-          </div>
-          <div class="wizard__progress-step" data-step="2">
-            <div class="wizard__progress-dot">2</div>
-            <span class="wizard__progress-label">ガス代確認</span>
-          </div>
-        </div>
-
-        <div class="wizard__card reveal" id="wizardCard">
-          <!-- All questions in one view -->
+        <div class="wizard__card glass-card reveal">
           <div class="wizard__question">
-            <h3 class="wizard__step-title">① 現在ご契約のガス会社を教えてください</h3>
-            <div class="wizard__select-wrap">
-              <input type="text" id="companyInput" class="wizard__company-input" placeholder="例: ○○ガス、ニチガス" autocomplete="off" aria-label="ガス会社名を入力">
+            <h3 class="wizard__step-title"><span class="wizard__step-num">1</span>現在ご契約のガス会社</h3>
+            <div class="wizard__input-group">
+              <input type="text" id="companyInput" class="wizard__company-input" placeholder="例: ニチガス、レモンガス" autocomplete="off" aria-label="ガス会社名を入力">
             </div>
             <div class="wizard__meter" id="meterSlip" style="display:none;"></div>
           </div>
 
           <div class="wizard__question">
-            <h3 class="wizard__step-title">② どちらでガスをお使いですか？（複数選択可）</h3>
-            <div class="wizard__checkbox-group">
-              <label class="wizard__checkbox"><input type="checkbox" name="gasUse" value="台所"><span>お台所</span></label>
-              <label class="wizard__checkbox"><input type="checkbox" name="gasUse" value="風呂"><span>お風呂・シャワー</span></label>
-              <label class="wizard__checkbox"><input type="checkbox" name="gasUse" value="給湯"><span>給湯</span></label>
-              <label class="wizard__checkbox"><input type="checkbox" name="gasUse" value="暖房"><span>暖房</span></label>
+            <h3 class="wizard__step-title"><span class="wizard__step-num">2</span>ガスの使用箇所（複数選択可）</h3>
+            <div class="wizard__pill-group">
+              <label class="wizard__pill"><input type="checkbox" name="gasUse" value="台所"><span class="wizard__pill-inner">&#x1F373; お台所</span></label>
+              <label class="wizard__pill"><input type="checkbox" name="gasUse" value="風呂"><span class="wizard__pill-inner">&#x1F6BF; お風呂</span></label>
+              <label class="wizard__pill"><input type="checkbox" name="gasUse" value="給湯"><span class="wizard__pill-inner">&#x1F6B0; 給湯</span></label>
+              <label class="wizard__pill"><input type="checkbox" name="gasUse" value="暖房"><span class="wizard__pill-inner">&#x1F525; 暖房</span></label>
             </div>
           </div>
 
           <div class="wizard__question">
-            <h3 class="wizard__step-title">③ 直近1か月のガス代はいくらでしたか？</h3>
-            <div class="wizard__input-wrap">
-              <span class="wizard__input-prefix">¥</span>
-              <input type="number" id="wizardBill" class="wizard__input" placeholder="例: 8000" min="0">
-              <span class="wizard__input-suffix">円/月</span>
+            <h3 class="wizard__step-title"><span class="wizard__step-num">3</span>直近1か月のガス代</h3>
+            <div class="wizard__bill-input">
+              <span class="wizard__bill-prefix">¥</span>
+              <input type="number" id="wizardBill" class="wizard__bill-field" placeholder="8000" min="0" aria-label="月のガス代">
+              <span class="wizard__bill-suffix">円/月</span>
             </div>
           </div>
 
-          <button class="btn btn--primary btn--large wizard__next-btn" id="wizardCalcBtn" style="width:100%; margin-top:16px;">診断結果を見る</button>
+          <button class="btn btn--primary btn--large btn--full wizard__calc-btn" id="wizardCalcBtn">
+            診断結果を見る &#x2192;
+          </button>
 
-          <!-- Result -->
-          <div class="wizard__step wizard__result" id="wizardResult" style="display:none;">
+          <div class="wizard__result" id="wizardResult" style="display:none;">
             <div class="wizard__result-card">
+              <div class="wizard__result-confetti-text">&#x1F389; おめでとうございます！</div>
               <div class="wizard__result-badge">診断結果</div>
-              <h3 class="wizard__result-title">約<span id="resultPercent">40</span>%削減の可能性があります！</h3>
-              <div class="wizard__result-comparison">
+              <h3 class="wizard__result-title">約<span class="wizard__result-percent" id="resultPercent">40</span>%削減の可能性</h3>
+              <div class="wizard__result-compare">
                 <div class="wizard__result-box wizard__result-before">
-                  <span class="wizard__result-box-label">現在のガス代</span>
-                  <span class="wizard__result-box-price" id="resultBefore">¥0</span>
-                  <span class="wizard__result-box-unit">/月</span>
+                  <span class="wizard__result-label">現在のガス代</span>
+                  <span class="wizard__result-price" id="resultBefore">¥0</span>
+                  <span class="wizard__result-unit">/月</span>
                 </div>
-                <div class="wizard__result-arrow" aria-hidden="true">&#x25B6;</div>
+                <div class="wizard__result-arrow">&#x25B6;</div>
                 <div class="wizard__result-box wizard__result-after">
-                  <span class="wizard__result-box-label">切替後のガス代</span>
-                  <span class="wizard__result-box-price" id="resultAfter">¥0</span>
-                  <span class="wizard__result-box-unit">/月</span>
+                  <span class="wizard__result-label">切替後のガス代</span>
+                  <span class="wizard__result-price" id="resultAfter">¥0</span>
+                  <span class="wizard__result-unit">/月</span>
                 </div>
               </div>
-              <div class="wizard__result-savings">
-                <span class="wizard__result-savings-label">年間節約額</span>
-                <span class="wizard__result-savings-amount" id="resultAnnual">¥0</span>
+              <div class="wizard__result-annual">
+                <span class="wizard__result-annual-label">年間節約額</span>
+                <span class="wizard__result-annual-amount" id="resultAnnual">¥0</span>
               </div>
-              <a href="#form" class="btn btn--primary btn--large wizard__result-cta">この金額、本当に安くなるか無料で相談する &#x2192;</a>
-              <p class="wizard__result-reassurance">相談だけでもOK・しつこい営業は一切ありません</p>
+              <a href="#form" class="btn btn--primary btn--large btn--full">この金額、本当に安くなるか無料で相談する &#x2192;</a>
+              <p class="wizard__result-note">相談だけでもOK・しつこい営業は一切ありません</p>
             </div>
           </div>
         </div>
@@ -162,178 +203,108 @@
     <!-- Why Section -->
     <section class="why" id="why">
       <div class="container">
-        <h2 class="section-title reveal">なぜ、見直しが必要なのか？</h2>
+        <h2 class="section-title reveal">なぜ、ガス代の<span class="text-gradient">見直し</span>が必要なのか？</h2>
         <p class="section-subtitle reveal">ほとんどの方が知らない、プロパンガス料金の「からくり」</p>
 
-        <!-- Part 1: Price Chart -->
         <div class="why__chart-section reveal">
           <h3 class="why__part-title">従量単価の推移（全国平均）</h3>
           <div class="why__chart" id="priceChart">
             <div class="why__chart-area">
-              <div class="why__chart-line" aria-label="適正単価ライン ¥350">
+              <div class="why__chart-line">
                 <span class="why__chart-line-label">適正単価 ¥350</span>
               </div>
               <div class="why__chart-bars">
-                <div class="why__chart-bar-wrap" data-year="2019" data-price="365">
+                <div class="why__chart-col" data-year="2019">
                   <span class="why__chart-price">¥365</span>
                   <div class="why__chart-bar" data-height="52"></div>
+                  <span class="why__chart-year">2019</span>
                 </div>
-                <div class="why__chart-bar-wrap" data-year="2020" data-price="345">
+                <div class="why__chart-col" data-year="2020">
                   <span class="why__chart-price">¥345</span>
                   <div class="why__chart-bar" data-height="46"></div>
+                  <span class="why__chart-year">2020</span>
                 </div>
-                <div class="why__chart-bar-wrap" data-year="2021" data-price="415">
+                <div class="why__chart-col" data-year="2021">
                   <span class="why__chart-price">¥415</span>
                   <div class="why__chart-bar" data-height="65"></div>
+                  <span class="why__chart-year">2021</span>
                 </div>
-                <div class="why__chart-bar-wrap" data-year="2022" data-price="475">
+                <div class="why__chart-col" data-year="2022">
                   <span class="why__chart-price">¥475</span>
                   <div class="why__chart-bar" data-height="80"></div>
+                  <span class="why__chart-year">2022</span>
                 </div>
-                <div class="why__chart-bar-wrap" data-year="2023" data-price="510">
+                <div class="why__chart-col" data-year="2023">
                   <span class="why__chart-price">¥510</span>
                   <div class="why__chart-bar" data-height="89"></div>
+                  <span class="why__chart-year">2023</span>
                 </div>
-                <div class="why__chart-bar-wrap" data-year="2024" data-price="530">
+                <div class="why__chart-col" data-year="2024">
                   <span class="why__chart-price">¥530</span>
-                  <div class="why__chart-bar" data-height="94"></div>
+                  <div class="why__chart-bar why__chart-bar--danger" data-height="94"></div>
+                  <span class="why__chart-year">2024</span>
                 </div>
               </div>
             </div>
-            <div class="why__chart-years">
-              <span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span>
-            </div>
           </div>
-          <p class="why__chart-note">知らない間に少しずつ値上がりしている場合がほとんどです</p>
+          <p class="why__chart-caption">※ 出典：石油情報センター</p>
         </div>
 
-        <!-- Part 2: Same company, different prices -->
-        <div class="why__houses-section reveal">
-          <h3 class="why__part-title">同じガス会社でも、お客様ごとに単価が違います</h3>
-          <div class="why__houses-grid">
-            <div class="why__house-card why__house--green reveal reveal-delay-1">
-              <div class="why__house-icon">&#x1F3E0;</div>
-              <div class="why__house-name">Aさん宅</div>
-              <div class="why__house-price">380<span>円/m³</span></div>
-              <div class="why__house-badge why__house-badge--green">&#x2713; 適正</div>
+        <div class="why__same-company reveal">
+          <h3 class="why__part-title">同じガス会社でも、家庭によって単価が違う</h3>
+          <p class="why__same-desc">プロパンガスは「自由料金制」。同じ会社でも契約時期や交渉状況で単価が異なります。</p>
+          <div class="why__household-grid">
+            <div class="why__household-card why__household--safe">
+              <span class="why__household-label">Aさん宅</span>
+              <span class="why__household-price">¥380<small>/m³</small></span>
             </div>
-            <div class="why__house-card why__house--yellow reveal reveal-delay-2">
-              <div class="why__house-icon">&#x1F3E0;</div>
-              <div class="why__house-name">Bさん宅</div>
-              <div class="why__house-price">430<span>円/m³</span></div>
-              <div class="why__house-badge why__house-badge--yellow">&#x26A0; やや高め</div>
+            <div class="why__household-card why__household--ok">
+              <span class="why__household-label">Bさん宅</span>
+              <span class="why__household-price">¥420<small>/m³</small></span>
             </div>
-            <div class="why__house-card why__house--orange reveal reveal-delay-3">
-              <div class="why__house-icon">&#x1F3E0;</div>
-              <div class="why__house-name">Cさん宅</div>
-              <div class="why__house-price">510<span>円/m³</span></div>
-              <div class="why__house-badge why__house-badge--orange">&#x1F525; 要注意</div>
+            <div class="why__household-card why__household--warn">
+              <span class="why__household-label">Cさん宅</span>
+              <span class="why__household-price">¥510<small>/m³</small></span>
             </div>
-            <div class="why__house-card why__house--red why__house-pulse reveal reveal-delay-4">
-              <div class="why__house-icon">&#x1F3E0;</div>
-              <div class="why__house-name">Dさん宅</div>
-              <div class="why__house-price">620<span>円/m³</span></div>
-              <div class="why__house-badge why__house-badge--red">&#x1F480; 危険</div>
-            </div>
-          </div>
-          <p class="why__houses-note">DさんはAさんより月々 <strong>約3,000円</strong> 多く払っています</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Unit Price Checker -->
-    <section class="unitcheck" id="unitcheck">
-      <div class="container">
-        <h2 class="section-title reveal">あなたの従量単価をチェック</h2>
-        <div class="unitcheck__card reveal">
-          <div class="unitcheck__inputs">
-            <div class="unitcheck__input-group">
-              <label for="ucBill" class="unitcheck__label">1ヶ月のガス代合計</label>
-              <div class="unitcheck__input-wrap">
-                <span class="unitcheck__prefix">¥</span>
-                <input type="number" id="ucBill" class="unitcheck__input" placeholder="例: 8000" min="0">
-              </div>
-            </div>
-            <div class="unitcheck__divider" aria-hidden="true">÷</div>
-            <div class="unitcheck__input-group">
-              <label for="ucUsage" class="unitcheck__label">使用量</label>
-              <div class="unitcheck__input-wrap">
-                <input type="number" id="ucUsage" class="unitcheck__input" placeholder="例: 10" min="0" step="0.1">
-                <span class="unitcheck__suffix">m³</span>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn--primary btn--large unitcheck__btn" id="ucCalcBtn">従量単価を計算する</button>
-          <div class="unitcheck__result" id="ucResult" style="display:none;">
-            <div class="unitcheck__loading" id="ucLoading">
-              <div class="unitcheck__spinner"></div>
-              <p>計算中...</p>
-            </div>
-            <div class="unitcheck__result-content" id="ucResultContent" style="display:none;">
-              <div class="unitcheck__result-price" id="ucResultPrice">¥0</div>
-              <div class="unitcheck__result-comment" id="ucResultComment"></div>
-              <div class="unitcheck__gauge">
-                <div class="unitcheck__gauge-bar">
-                  <div class="unitcheck__gauge-fill" id="ucGaugeFill"></div>
-                  <div class="unitcheck__gauge-marker" id="ucGaugeMarker" style="left:50%">
-                    <span>適正単価</span>
-                  </div>
-                </div>
-                <div class="unitcheck__gauge-labels">
-                  <span>安い</span>
-                  <span>適正</span>
-                  <span>高い</span>
-                </div>
-              </div>
-              <div class="unitcheck__savings" id="ucSavings" style="display:none;">
-                <p class="unitcheck__savings-text">年間で約 <strong id="ucSavingsAmount">¥0</strong> 節約できる可能性があります</p>
-              </div>
+            <div class="why__household-card why__household--danger">
+              <span class="why__household-label">Dさん宅</span>
+              <span class="why__household-price">¥620<small>/m³</small></span>
+              <span class="why__household-alert">&#x26A0; 適正価格の約1.8倍</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Energy Reason Section -->
-    <section class="energy" id="energy">
+    <!-- Advantages Section -->
+    <section class="advantages" id="advantages">
       <div class="container">
-        <h2 class="section-title reveal">なぜ「今」が最大のチャンスなのか</h2>
-        <div class="energy__flow">
-          <div class="energy__step reveal">
-            <div class="energy__step-icon">&#x1F4CA;</div>
-            <h3 class="energy__step-label">仕組み</h3>
-            <p class="energy__step-text">ガス会社は3か月先のLPガスを「今の原油価格」で先買いしている</p>
+        <h2 class="section-title reveal">スマートチョイスが<span class="text-gradient">選ばれる3つの理由</span></h2>
+        <div class="advantages__grid">
+          <div class="advantages__card glass-card reveal reveal-delay-1">
+            <div class="advantages__num">01</div>
+            <div class="advantages__icon">&#x1F4B0;</div>
+            <h3 class="advantages__title">最大50%のガス代削減</h3>
+            <p class="advantages__desc">独自のネットワークで厳選した優良ガス会社をご紹介。適正価格で大幅なコスト削減を実現します。</p>
+            <div class="advantages__meter">
+              <div class="advantages__meter-fill" data-width="50">
+                <span class="advantages__meter-text">最大50%OFF</span>
+              </div>
+            </div>
           </div>
-          <div class="energy__arrow reveal" aria-hidden="true">&#x25B6;</div>
-          <div class="energy__step reveal">
-            <div class="energy__step-icon">&#x26A0;&#xFE0F;</div>
-            <h3 class="energy__step-label">今の情勢</h3>
-            <p class="energy__step-text">イラン情勢の悪化で原油価格の上昇がほぼ確実</p>
+          <div class="advantages__card glass-card reveal reveal-delay-2">
+            <div class="advantages__num">02</div>
+            <div class="advantages__icon">&#x1F6E1;&#xFE0F;</div>
+            <h3 class="advantages__title">1年間の料金保障</h3>
+            <p class="advantages__desc">切替後1年間は料金据え置きを保障。「安くなったのは最初だけ」という心配は不要です。</p>
+            <div class="advantages__badge-rare">業界でも珍しい保障制度</div>
           </div>
-          <div class="energy__arrow reveal" aria-hidden="true">&#x25B6;</div>
-          <div class="energy__step reveal">
-            <div class="energy__step-icon">&#x1F4C8;</div>
-            <h3 class="energy__step-label">必然の結果</h3>
-            <p class="energy__step-text">すべてのガス会社がもれなく値上げしていく</p>
-          </div>
-        </div>
-        <div class="energy__comparison reveal">
-          <div class="energy__compare-card energy__compare--bad">
-            <div class="energy__compare-emoji">&#x1F630;</div>
-            <h4 class="energy__compare-title">5年以上同じ会社を使用中</h4>
-            <p class="energy__compare-text">値上げの優先ターゲットに</p>
-          </div>
-          <div class="energy__compare-card energy__compare--good">
-            <div class="energy__compare-emoji">&#x1F60A;</div>
-            <h4 class="energy__compare-title">切替から1〜2年以内</h4>
-            <p class="energy__compare-text">値上げしにくい保護期間</p>
-          </div>
-        </div>
-        <div class="energy__conclusion reveal">
-          <div class="energy__conclusion-icon">&#x1F4A1;</div>
-          <div class="energy__conclusion-text">
-            <strong>つまり、「今」切り替えるのが最も賢い選択です。</strong><br>
-            切替直後は値上げされにくい保護期間。原油高騰前の今がベストタイミングです。
+          <div class="advantages__card glass-card reveal reveal-delay-3">
+            <div class="advantages__num">03</div>
+            <div class="advantages__icon">&#x1F91D;</div>
+            <h3 class="advantages__title">料金交渉サービス</h3>
+            <p class="advantages__desc">切替後に万が一の値上げがあっても、弊社がお客様に代わってガス会社と交渉いたします。</p>
+            <div class="advantages__badge-rare">スマートチョイス独自</div>
           </div>
         </div>
       </div>
@@ -342,65 +313,58 @@
     <!-- Guarantee Section -->
     <section class="guarantee" id="guarantee">
       <div class="container">
-        <h2 class="section-title reveal">スマートチョイスだけの安心保障</h2>
+        <h2 class="section-title reveal">切替後も安心。<span class="text-gradient">2つの保障</span></h2>
+        <p class="section-subtitle reveal">お客様を守る独自の保障制度で、切替後も安心をお届けします</p>
         <div class="guarantee__grid">
-          <div class="guarantee__card reveal">
-            <div class="guarantee__card-icon" aria-hidden="true">&#x1F6E1;&#xFE0F;</div>
-            <h3 class="guarantee__card-title">1年間 料金保障</h3>
-            <p class="guarantee__card-text">基本料金・従量単価を1年間変更しません。切替後の値上げの心配は不要です。</p>
+          <div class="guarantee__card glass-card reveal reveal-delay-1">
+            <div class="guarantee__icon">&#x1F6E1;&#xFE0F;</div>
+            <h3 class="guarantee__title">1年間の料金保障</h3>
+            <p class="guarantee__desc">切替後1年間は、契約時の料金を保障。原油価格の変動があっても、お客様の料金は据え置きです。安心して切り替えられます。</p>
           </div>
-          <div class="guarantee__card reveal">
-            <div class="guarantee__card-icon" aria-hidden="true">&#x1F91D;</div>
-            <h3 class="guarantee__card-title">料金交渉サービス</h3>
-            <p class="guarantee__card-text">万が一ガス会社都合の不当な値上げがあった場合、スマートチョイスがお客様に代わりガス会社に連絡し、料金を元に戻します。</p>
+          <div class="guarantee__card glass-card reveal reveal-delay-2">
+            <div class="guarantee__icon">&#x1F4AC;</div>
+            <h3 class="guarantee__title">料金交渉代行サービス</h3>
+            <p class="guarantee__desc">保障期間終了後に値上げ通知が届いた場合も、弊社がガス会社と直接交渉。お客様の手間はゼロです。</p>
           </div>
         </div>
         <p class="guarantee__note reveal">※ 他社にはないスマートチョイス独自のサービスです</p>
       </div>
     </section>
 
-    <!-- Target Audience Section -->
-    <section class="targets" id="targets">
+    <!-- Target Section -->
+    <section class="target" id="target">
       <div class="container">
-        <h2 class="section-title reveal">あらゆるお客様に対応しています</h2>
-        <div class="targets__grid">
-          <div class="targets__card reveal">
-            <div class="targets__card-icon" aria-hidden="true">&#x1F3E0;</div>
-            <h3 class="targets__card-title">戸建てにお住まいの方</h3>
-            <p class="targets__card-text">毎月のガス代が高いと感じたら、見直しのチャンス。関東圏で約30%、それ以外の地域で最大50%の削減実績があります。</p>
+        <h2 class="section-title reveal">あらゆるお客様に対応</h2>
+        <div class="target__grid">
+          <div class="target__card reveal reveal-delay-1">
+            <div class="target__card-accent"></div>
+            <div class="target__icon">&#x1F3E0;</div>
+            <h3 class="target__title">戸建てにお住まいの方</h3>
+            <ul class="target__list">
+              <li>月々のガス代を大幅削減</li>
+              <li>給湯器の無償貸与プランあり</li>
+              <li>切替の手続きは全てお任せ</li>
+            </ul>
           </div>
-          <div class="targets__card reveal">
-            <div class="targets__card-icon" aria-hidden="true">&#x1F3E2;</div>
-            <h3 class="targets__card-title">法人・店舗のお客様</h3>
-            <p class="targets__card-text">飲食店・美容室・工場など、事業のガスコストを大幅に削減。複数拠点もまとめて対応可能です。</p>
+          <div class="target__card reveal reveal-delay-2">
+            <div class="target__card-accent target__card-accent--blue"></div>
+            <div class="target__icon">&#x1F3E2;</div>
+            <h3 class="target__title">法人・店舗経営者の方</h3>
+            <ul class="target__list">
+              <li>業務用ガスのコスト削減</li>
+              <li>複数拠点の一括見直し対応</li>
+              <li>経費削減で利益率アップ</li>
+            </ul>
           </div>
-          <div class="targets__card reveal">
-            <div class="targets__card-icon" aria-hidden="true">&#x1F3D8;&#xFE0F;</div>
-            <h3 class="targets__card-title">アパート・マンションオーナー様</h3>
-            <p class="targets__card-text">物件の魅力向上とコスト削減を同時に実現。入居者様への説明・サポートもスマートチョイスが対応します。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Facts Section -->
-    <section class="facts" id="facts">
-      <div class="container">
-        <div class="facts__grid">
-          <div class="facts__card reveal">
-            <div class="facts__number" data-target="130000" data-suffix="件+">0</div>
-            <div class="facts__label">累計切替実績</div>
-            <p class="facts__desc">協力会社様との累計実績です</p>
-          </div>
-          <div class="facts__card reveal">
-            <div class="facts__number" data-target="50" data-prefix="最大" data-suffix="%">0</div>
-            <div class="facts__label">ガス料金の削減率</div>
-            <p class="facts__desc">地域により30〜50%の削減が可能</p>
-          </div>
-          <div class="facts__card reveal">
-            <div class="facts__number" data-target="0" data-suffix="円" data-immediate="true">0</div>
-            <div class="facts__label">初期費用・手数料</div>
-            <p class="facts__desc">診断から切替まですべて無料</p>
+          <div class="target__card reveal reveal-delay-3">
+            <div class="target__card-accent target__card-accent--green"></div>
+            <div class="target__icon">&#x1F3D8;&#xFE0F;</div>
+            <h3 class="target__title">アパートオーナーの方</h3>
+            <ul class="target__list">
+              <li>入居者のガス代を削減し満足度UP</li>
+              <li>複数棟の一括見直し対応</li>
+              <li>設備サポート付きプランあり</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -409,196 +373,409 @@
     <!-- Process Section -->
     <section class="process" id="process">
       <div class="container">
-        <h2 class="section-title reveal">切替はとってもカンタン</h2>
-        <div class="process__grid">
-          <div class="process__card reveal">
-            <div class="process__card-icon">&#x1F4DE;</div>
-            <h3 class="process__card-title">相手ガス屋への連絡・手続き</h3>
-            <div class="process__card-arrow" aria-hidden="true">&#x25BC;</div>
-            <p class="process__card-answer">すべてスマートチョイスが代行します</p>
+        <h2 class="section-title reveal">切替は<span class="text-gradient">とってもカンタン</span></h2>
+        <p class="section-subtitle reveal">お客様がやることは書類記入と点火点検の立会いだけ</p>
+        <div class="process__flow reveal">
+          <div class="process__step">
+            <div class="process__step-circle">
+              <span class="process__step-num">1</span>
+            </div>
+            <h4 class="process__step-title">お問い合わせ</h4>
+            <p class="process__step-desc">フォームまたはお電話でご連絡ください</p>
           </div>
-          <div class="process__card-connector reveal" aria-hidden="true">
-            <span class="process__card-connector-arrow">&#x25B6;</span>
+          <div class="process__connector"><span class="process__connector-line"></span></div>
+          <div class="process__step">
+            <div class="process__step-circle">
+              <span class="process__step-num">2</span>
+            </div>
+            <h4 class="process__step-title">無料診断</h4>
+            <p class="process__step-desc">検針票をもとに最適なプランをご提案</p>
           </div>
-          <div class="process__card reveal">
-            <div class="process__card-icon">&#x1F527;</div>
-            <h3 class="process__card-title">ボンベとメーターの交換のみ</h3>
-            <div class="process__card-arrow" aria-hidden="true">&#x25BC;</div>
-            <p class="process__card-answer">工事費も無料。約2週間で完了します</p>
+          <div class="process__connector"><span class="process__connector-line"></span></div>
+          <div class="process__step">
+            <div class="process__step-circle">
+              <span class="process__step-num">3</span>
+            </div>
+            <h4 class="process__step-title">書類記入</h4>
+            <p class="process__step-desc">申込書に必要事項をご記入いただきます</p>
+          </div>
+          <div class="process__connector"><span class="process__connector-line"></span></div>
+          <div class="process__step">
+            <div class="process__step-circle">
+              <span class="process__step-num">4</span>
+            </div>
+            <h4 class="process__step-title">切替完了</h4>
+            <p class="process__step-desc">約2週間で切替完了。ガスの品質は同じです</p>
           </div>
         </div>
-        <p class="process__note reveal">お客様がやることは、書類への記入と切替日の点火点検への立会いだけです。</p>
+        <div class="process__emphasis reveal">
+          <p>&#x2705; お客様がやることは<strong>書類記入</strong>と<strong>点火点検の立会い</strong>だけ</p>
+        </div>
       </div>
     </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="form">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
       <div class="container">
-        <span class="form-section__label reveal">CONTACT</span>
-        <h2 class="section-title section-title--white reveal">無料ガス代診断 お申し込み</h2>
-        <p class="form-section__subtitle reveal">スマートチョイスの専門スタッフが、あなたのガス代を無料で診断します</p>
+        <h2 class="section-title reveal">お客様の声</h2>
+        <p class="section-subtitle reveal">実際にスマートチョイスで切り替えたお客様からの喜びの声</p>
+        <div class="testimonials__grid">
+          <div class="testimonials__card glass-card reveal reveal-delay-1">
+            <div class="testimonials__stars">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</div>
+            <div class="testimonials__tag">戸建て・50代女性</div>
+            <blockquote class="testimonials__quote">
+              「月8,000円だったガス代が5,500円に！年間で約3万円の節約になりました。もっと早く見直せばよかったです。」
+            </blockquote>
+            <div class="testimonials__footer">
+              <span class="testimonials__initial">T.K</span>
+              <span class="testimonials__location">千葉県</span>
+              <span class="testimonials__savings">月2,500円の節約</span>
+            </div>
+          </div>
+          <div class="testimonials__card glass-card reveal reveal-delay-2">
+            <div class="testimonials__stars">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</div>
+            <div class="testimonials__tag">飲食店経営・40代男性</div>
+            <blockquote class="testimonials__quote">
+              「店舗のガス代が月15,000円も安くなりました。年間で18万円の経費削減です。味やサービスに投資できるようになりました。」
+            </blockquote>
+            <div class="testimonials__footer">
+              <span class="testimonials__initial">M.S</span>
+              <span class="testimonials__location">東京都</span>
+              <span class="testimonials__savings">月15,000円の節約</span>
+            </div>
+          </div>
+          <div class="testimonials__card glass-card reveal reveal-delay-3">
+            <div class="testimonials__stars">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</div>
+            <div class="testimonials__tag">アパートオーナー・60代男性</div>
+            <blockquote class="testimonials__quote">
+              「所有する3棟をまとめて見直してもらいました。入居者さんからも『ガス代が安くなった』と好評で、満足度が上がりました。」
+            </blockquote>
+            <div class="testimonials__footer">
+              <span class="testimonials__initial">H.Y</span>
+              <span class="testimonials__location">神奈川県</span>
+              <span class="testimonials__savings">3棟一括で見直し</span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonials__disclaimer reveal">※ お客様の許可を得て掲載しています</p>
+      </div>
+    </section>
 
-        <div class="form-section__card reveal">
-          <form class="contact-form" id="contactForm" action="https://script.google.com/macros/s/AKfycbwWcp2pWZBxgdMjE2Oa6w4yv_C4DKcFs-OTlLIV-yoUUr2U9C96OQGUKCnaqzMlDFaM/exec" method="POST" novalidate>
+    <!-- Facts Section -->
+    <section class="facts" id="facts">
+      <div class="container">
+        <div class="facts__grid">
+          <div class="facts__card reveal reveal-delay-1">
+            <div class="facts__card-inner">
+              <span class="facts__number" id="factsCount1" data-target="130000" data-suffix="件+">0</span>
+              <span class="facts__label">累計切替実績</span>
+            </div>
+          </div>
+          <div class="facts__card reveal reveal-delay-2">
+            <div class="facts__card-inner">
+              <span class="facts__number" data-target="50" data-prefix="最大" data-suffix="%" data-immediate="true">最大50%</span>
+              <span class="facts__label">ガス代削減</span>
+            </div>
+          </div>
+          <div class="facts__card reveal reveal-delay-3">
+            <div class="facts__card-inner">
+              <span class="facts__number" data-target="0" data-suffix="円" data-immediate="true">0円</span>
+              <span class="facts__label">初期費用・切替費用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="form-group">
-              <label class="form-label">お問い合わせ内容</label>
+    <!-- Timing Section -->
+    <section class="timing" id="timing">
+      <div class="container">
+        <h2 class="section-title reveal">なぜ<span class="text-gradient">「今」</span>がチャンスなのか</h2>
+        <div class="timing__flow reveal">
+          <div class="timing__step-card glass-card">
+            <div class="timing__step-num">1</div>
+            <h4>原油仕入れの仕組み</h4>
+            <p>LPガスの原料は海外からの輸入が大半。為替・原油価格の影響を受けやすい構造です。</p>
+          </div>
+          <div class="timing__arrow">&#x2192;</div>
+          <div class="timing__step-card glass-card">
+            <div class="timing__step-num">2</div>
+            <h4>今の情勢</h4>
+            <p>エネルギー価格は世界的に上昇トレンド。今後さらなる値上げの可能性が高い状況です。</p>
+          </div>
+          <div class="timing__arrow">&#x2192;</div>
+          <div class="timing__step-card glass-card">
+            <div class="timing__step-num">3</div>
+            <h4>必然の値上げ</h4>
+            <p>長期間同じ会社を使い続けると、知らない間に単価が上がっているケースが非常に多いです。</p>
+          </div>
+        </div>
+        <div class="timing__compare reveal">
+          <div class="timing__compare-bad">
+            <span class="timing__compare-emoji">&#x1F630;</span>
+            <h4>5年以上同じ会社</h4>
+            <p>単価が50%以上高くなっている可能性大</p>
+          </div>
+          <div class="timing__compare-vs">VS</div>
+          <div class="timing__compare-good">
+            <span class="timing__compare-emoji">&#x1F60A;</span>
+            <h4>切替1〜2年以内</h4>
+            <p>適正価格でガス代を大幅に抑えられる</p>
+          </div>
+        </div>
+        <div class="timing__conclusion reveal">
+          <p><strong>今切り替えるのが最も賢い選択です</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unit Price Checker -->
+    <section class="unitcheck" id="unitcheck">
+      <div class="container">
+        <h2 class="section-title reveal">あなたの<span class="text-gradient">従量単価</span>をチェック</h2>
+        <p class="section-subtitle reveal">検針票の「ご請求金額」と「使用量」から従量単価を計算します</p>
+        <div class="unitcheck__card glass-card reveal">
+          <div class="unitcheck__inputs">
+            <div class="unitcheck__field">
+              <label class="unitcheck__label" for="ucBill">ガス代合計（税込）</label>
+              <div class="unitcheck__input-wrap">
+                <span class="unitcheck__prefix">¥</span>
+                <input type="number" id="ucBill" class="unitcheck__input" placeholder="10000" min="0">
+              </div>
+            </div>
+            <div class="unitcheck__divider">&#xF7;</div>
+            <div class="unitcheck__field">
+              <label class="unitcheck__label" for="ucUsage">使用量</label>
+              <div class="unitcheck__input-wrap">
+                <input type="number" id="ucUsage" class="unitcheck__input" placeholder="15" min="0" step="0.1">
+                <span class="unitcheck__suffix">m³</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn--primary btn--large btn--full" id="ucCalcBtn">従量単価を計算する</button>
+
+          <div class="unitcheck__result" id="ucResult" style="display:none;">
+            <div class="unitcheck__loading" id="ucLoading">
+              <div class="unitcheck__spinner"></div>
+              <p>計算中...</p>
+            </div>
+            <div class="unitcheck__result-content" id="ucResultContent" style="display:none;">
+              <h4>あなたの従量単価</h4>
+              <div class="unitcheck__result-price" id="ucResultPrice">¥0 /m³</div>
+              <div class="unitcheck__gauge">
+                <div class="unitcheck__gauge-track">
+                  <div class="unitcheck__gauge-fill" id="ucGaugeFill"></div>
+                  <div class="unitcheck__gauge-marker" id="ucGaugeMarker">
+                    <span class="unitcheck__gauge-marker-label">適正</span>
+                  </div>
+                </div>
+                <div class="unitcheck__gauge-labels">
+                  <span>¥200</span>
+                  <span>¥450</span>
+                  <span>¥700</span>
+                </div>
+              </div>
+              <p class="unitcheck__result-comment" id="ucResultComment"></p>
+              <div class="unitcheck__savings" id="ucSavings" style="display:none;">
+                <p>適正単価に見直した場合の年間節約額（概算）</p>
+                <span class="unitcheck__savings-amount" id="ucSavingsAmount">¥0</span>
+                <a href="#form" class="btn btn--primary" style="margin-top:12px;">無料で詳しく相談する</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title reveal">よくあるご質問</h2>
+        <div class="faq__list reveal">
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>切替に費用はかかりますか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>いいえ、切替にかかる費用は一切ありません。初期費用・手数料ともに0円です。安心してご相談ください。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>ガスの品質は変わりませんか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>LPガスは国の規格で品質が定められているため、どのガス会社でも品質は同じです。安心してお使いいただけます。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>切替の手続きは面倒ですか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>お客様にしていただくのは申込書への記入と、切替当日の点火テスト立会い（約15分）のみです。旧ガス会社への解約連絡等は全て弊社が代行します。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>切替にはどれくらいの期間がかかりますか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>お申し込みから約2週間で切替が完了します。切替当日はガスが1〜2時間ほど使えない時間がありますが、それ以外は通常通りお使いいただけます。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>賃貸でも切替できますか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>戸建ての賃貸の場合、大家さんの承諾があれば切替可能です。集合住宅の場合はオーナー様からのお申し込みが必要です。まずはお気軽にご相談ください。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>1年間の料金保障とは何ですか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>切替後1年間は、契約時の従量単価を保障するサービスです。原油価格の変動があっても、お客様のガス料金は据え置きとなります。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>料金交渉サービスとは何ですか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>保障期間終了後にガス会社から値上げ通知が届いた場合、弊社がお客様に代わってガス会社と料金交渉を行うサービスです。他社にはないスマートチョイス独自のサービスです。</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>対応エリアはどこですか？</span>
+              <span class="faq__toggle">+</span>
+            </button>
+            <div class="faq__answer">
+              <p>関東エリア（東京都・神奈川県・千葉県・埼玉県・茨城県・栃木県・群馬県）を中心に対応しています。その他のエリアもご相談ください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="form">
+      <div class="container">
+        <h2 class="section-title section-title--white reveal">無料ガス代診断 <span class="text-gradient-light">お申し込み</span></h2>
+        <p class="section-subtitle section-subtitle--white reveal">最短60秒で入力完了。担当者が最適なプランをご提案します。</p>
+
+        <div class="contact__card reveal">
+          <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwWcp2pWZBxgdMjE2Oa6w4yv_C4DKcFs-OTlLIV-yoUUr2U9C96OQGUKCnaqzMlDFaM/exec" method="POST">
+
+            <fieldset class="form-group">
+              <legend class="form-legend">お問い合わせ種別</legend>
               <div class="form-radio-grid">
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="料金診断・見積もり" checked><span>料金診断・見積もり</span></label>
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="ガス会社の切替相談"><span>ガス会社の切替相談</span></label>
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="料金が適正か確認したい"><span>料金が適正か確認したい</span></label>
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="切替の流れを知りたい"><span>切替の流れを知りたい</span></label>
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="賃貸での切替について"><span>賃貸での切替について</span></label>
-                <label class="form-radio-card"><input type="radio" name="inquiry" value="その他"><span>その他</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="戸建てのガス代見直し" checked><span>戸建てのガス代見直し</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="店舗・法人のガス代見直し"><span>店舗・法人のガス代見直し</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="アパートのガス代見直し"><span>アパートのガス代見直し</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="従量単価を知りたい"><span>従量単価を知りたい</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="料金交渉をしてほしい"><span>料金交渉をしてほしい</span></label>
+                <label class="form-radio"><input type="radio" name="type" value="その他"><span>その他</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formName">お名前 <span class="form-required">必須</span></label>
+                <input type="text" id="formName" name="name" class="form-input" placeholder="例: 山田 太郎" required>
+                <span class="form-error"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formPhone">電話番号 <span class="form-required">必須</span></label>
+                <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="例: 090-1234-5678" required>
+                <span class="form-error"></span>
               </div>
             </div>
 
-            <div class="form-divider">
-              <span>任意でご入力ください</span>
-            </div>
-
             <div class="form-group">
-              <label for="formName" class="form-label">お名前<span class="form-required">必須</span></label>
-              <input type="text" id="formName" name="name" class="form-input" required autocomplete="name" placeholder="山田 太郎">
-              <span class="form-error" role="alert"></span>
+              <label class="form-label" for="formAddress">ご住所 <span class="form-required">必須</span></label>
+              <input type="text" id="formAddress" name="address" class="form-input" placeholder="例: 神奈川県藤沢市○○町1-2-3" required>
+              <span class="form-error"></span>
             </div>
 
-            <div class="form-group">
-              <label for="formAddress" class="form-label">住所<span class="form-required">必須</span></label>
-              <input type="text" id="formAddress" name="address" class="form-input" required autocomplete="street-address" placeholder="都道府県・市区町村まで">
-              <span class="form-error" role="alert"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="formPhone" class="form-label">電話番号<span class="form-required">必須</span></label>
-              <input type="tel" id="formPhone" name="phone" class="form-input" required autocomplete="tel" placeholder="090-1234-5678">
-              <span class="form-error" role="alert"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="formBill" class="form-label">月の請求金額<span class="form-required">必須</span></label>
-              <input type="text" id="formBill" name="bill" class="form-input" required placeholder="例: 8,000">
-              <span class="form-error" role="alert"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="formEmail" class="form-label">メールアドレス<span class="form-optional">任意</span></label>
-              <input type="email" id="formEmail" name="email" class="form-input" autocomplete="email" placeholder="example@email.com">
-              <span class="form-error" role="alert"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="formGasCompany" class="form-label">現在のガス会社名<span class="form-optional">任意</span></label>
-              <input type="text" id="formGasCompany" name="gasCompany" class="form-input" placeholder="例: ○○ガス">
-            </div>
-
-            <div class="form-group">
-              <label for="formUsage" class="form-label">月の使用量<span class="form-optional">任意</span></label>
-              <input type="text" id="formUsage" name="usage" class="form-input" placeholder="例: 15">
-            </div>
-
-            <div class="form-group">
-              <label for="formPropertyType" class="form-label">住居の種類<span class="form-optional">任意</span></label>
-              <select id="formPropertyType" name="propertyType" class="form-input form-select">
-                <option value="">選択してください</option>
-                <option value="戸建て（持ち家）">戸建て（持ち家）</option>
-                <option value="戸建て（賃貸）">戸建て（賃貸）</option>
-                <option value="マンション（持ち家）">マンション（持ち家）</option>
-                <option value="マンション（賃貸）">マンション（賃貸）</option>
-                <option value="アパート（オーナー）">アパート（オーナー）</option>
-                <option value="法人・店舗">法人・店舗</option>
-              </select>
-            </div>
-
-            <div class="form-group form-group--row">
-              <div class="form-group__half">
-                <label for="formDate" class="form-label">希望連絡日<span class="form-optional">任意</span></label>
-                <input type="date" id="formDate" name="contactDate" class="form-input">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formBill">月のガス代（税込） <span class="form-required">必須</span></label>
+                <input type="text" id="formBill" name="bill" class="form-input" placeholder="例: 8000" required>
+                <span class="form-error"></span>
               </div>
-              <div class="form-group__half">
-                <label for="formTime" class="form-label">時間帯<span class="form-optional">任意</span></label>
-                <select id="formTime" name="contactTime" class="form-input form-select">
+              <div class="form-group">
+                <label class="form-label" for="formEmail">メールアドレス</label>
+                <input type="email" id="formEmail" name="email" class="form-input" placeholder="例: example@email.com">
+                <span class="form-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formCompany">現在のガス会社名</label>
+                <input type="text" id="formCompany" name="gasCompany" class="form-input" placeholder="例: ニチガス">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formUsage">月の使用量（m³）</label>
+                <input type="text" id="formUsage" name="usage" class="form-input" placeholder="例: 15">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formProperty">物件種別</label>
+                <select id="formProperty" name="property" class="form-input">
                   <option value="">選択してください</option>
-                  <option value="午前中">午前中</option>
-                  <option value="12-14時">12-14時</option>
-                  <option value="14-16時">14-16時</option>
-                  <option value="16-18時">16-18時</option>
-                  <option value="18時以降">18時以降</option>
+                  <option value="戸建て（持ち家）">戸建て（持ち家）</option>
+                  <option value="戸建て（賃貸）">戸建て（賃貸）</option>
+                  <option value="集合住宅">集合住宅</option>
+                  <option value="店舗・法人">店舗・法人</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formTime">ご希望の連絡時間帯</label>
+                <select id="formTime" name="preferredTime" class="form-input">
+                  <option value="">選択してください</option>
+                  <option value="午前中（9:00-12:00）">午前中（9:00-12:00）</option>
+                  <option value="午後（12:00-17:00）">午後（12:00-17:00）</option>
+                  <option value="夕方以降（17:00-20:00）">夕方以降（17:00-20:00）</option>
+                  <option value="いつでも">いつでも</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="formMessage" class="form-label">ご質問・備考<span class="form-optional">任意</span></label>
-              <textarea id="formMessage" name="message" class="form-input form-textarea" rows="4" placeholder="ご自由にご記入ください"></textarea>
+              <label class="form-label" for="formMessage">ご質問・ご要望</label>
+              <textarea id="formMessage" name="message" class="form-input form-textarea" rows="3" placeholder="その他ご質問やご要望があればご記入ください"></textarea>
             </div>
 
             <div class="form-group form-group--privacy">
               <label class="form-checkbox">
-                <input type="checkbox" id="formPrivacy" name="privacy" required>
+                <input type="checkbox" id="formPrivacy">
                 <span><a href="#privacy" class="form-privacy-link">プライバシーポリシー</a>に同意する</span>
               </label>
-              <span class="form-error" role="alert"></span>
+              <span class="form-error"></span>
             </div>
 
-            <button type="submit" class="btn btn--primary btn--large btn--full contact-form__submit" id="formSubmitBtn">&#x25B6; 無料で相談内容を送信する</button>
-            <p class="contact-form__note">※ しつこい営業は一切行いません。LINEまたはお電話にてご連絡いたします。</p>
+            <button type="submit" class="btn btn--primary btn--large btn--full" id="formSubmitBtn">無料診断を申し込む</button>
+            <p class="contact__note">&#x1F6E1;&#xFE0F; しつこい営業は一切行いません</p>
           </form>
 
-          <div class="contact-form__success" id="formSuccess" style="display:none;">
-            <div class="contact-form__success-icon">&#x2705;</div>
-            <h3 class="contact-form__success-title">送信が完了しました！ご相談ありがとうございます。</h3>
-            <p class="contact-form__success-text">スマートチョイスの担当者より順次ご連絡いたします。（通常1営業日以内）</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Privacy Policy -->
-    <section class="privacy-section" id="privacy" style="display:none;">
-      <div class="container">
-        <div class="privacy-section__card">
-          <button class="privacy-section__close" id="privacyClose" aria-label="閉じる">&times;</button>
-          <h2 class="privacy-section__title">プライバシーポリシー</h2>
-          <p class="privacy-section__date">制定日: 2026年4月</p>
-          <div class="privacy-section__content">
-            <p>株式会社nero（以下「当社」）は、スマートチョイス（以下「本サービス」）におけるお客様の個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
-
-            <h3>1. 収集する個人情報</h3>
-            <p>当社は、本サービスのお問い合わせ・ガス代診断にあたり、以下の情報を収集いたします。</p>
-            <ul>
-              <li>お名前</li>
-              <li>ご住所</li>
-              <li>電話番号</li>
-              <li>メールアドレス</li>
-              <li>ガスのご利用状況（ガス会社名、使用量、請求金額等）</li>
-              <li>住居の種類</li>
-              <li>その他、お問い合わせフォームにご記入いただいた情報</li>
-            </ul>
-
-            <h3>2. 利用目的</h3>
-            <p>収集した個人情報は、以下の目的で利用いたします。</p>
-            <ul>
-              <li>ガス代診断結果のご連絡</li>
-              <li>ガス会社切替に関するご案内・ご相談対応</li>
-              <li>サービス向上のための分析（個人を特定しない統計データとして）</li>
-            </ul>
-
-            <h3>3. 個人情報の管理</h3>
-            <p>お客様の個人情報は、Google Apps ScriptおよびLINE通知を利用して管理いたします。適切なセキュリティ対策を講じ、不正アクセス・漏洩・改ざん・紛失の防止に努めます。</p>
-
-            <h3>4. 第三者への提供</h3>
-            <p>当社は、以下の場合を除き、お客様の個人情報を第三者に提供いたしません。</p>
-            <ul>
-              <li>お客様の同意がある場合</li>
-              <li>ガス会社切替手続きに必要な範囲で、切替先ガス会社に提供する場合</li>
-              <li>法令に基づく場合</li>
-            </ul>
-
-            <h3>5. お問い合わせ</h3>
-            <p>個人情報の取り扱いに関するお問い合わせは、本サービスのお問い合わせフォームよりご連絡ください。</p>
-
-            <p class="privacy-section__company">株式会社nero</p>
+          <div class="contact__success" id="formSuccess" style="display:none;">
+            <div class="contact__success-icon">&#x2705;</div>
+            <h3>お申し込みありがとうございます</h3>
+            <p>担当者より1営業日以内にご連絡いたします。<br>しばらくお待ちください。</p>
           </div>
         </div>
       </div>
@@ -611,20 +788,48 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <p class="footer__logo">スマートチョイス</p>
-          <p class="footer__sub">LPガス切替の総合代理店 | 株式会社nero</p>
+          <span class="footer__logo">&#x26A1; スマートチョイス</span>
+          <span class="footer__company">株式会社nero</span>
         </div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <div class="footer__links">
           <a href="#privacy" class="footer__link">プライバシーポリシー</a>
-        </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smart Choice. All rights reserved.</p>
       </div>
-      <p class="footer__copyright">&copy; 2026 スマートチョイス（株式会社nero）All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- Floating CTA (Mobile) -->
+  <!-- Floating CTA (mobile) -->
   <div class="floating-cta" id="floatingCta">
-    <a href="#form" class="btn btn--primary btn--full floating-cta__btn">60秒で無料診断する</a>
+    <a href="#form" class="floating-cta__btn">無料で診断する</a>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="ページトップへ戻る">&#x2191;</button>
+
+  <!-- Privacy Modal -->
+  <div class="privacy-modal" id="privacy" style="display:none;" role="dialog" aria-modal="true" aria-label="プライバシーポリシー">
+    <div class="privacy-modal__content">
+      <button class="privacy-modal__close" id="privacyClose" aria-label="閉じる">&times;</button>
+      <h2>プライバシーポリシー</h2>
+      <div class="privacy-modal__body">
+        <h3>1. 個人情報の取得</h3>
+        <p>当社は、お問い合わせフォーム等を通じて、お名前、ご住所、電話番号、メールアドレス等の個人情報を取得することがあります。</p>
+        <h3>2. 個人情報の利用目的</h3>
+        <p>取得した個人情報は、以下の目的で利用いたします。</p>
+        <ul>
+          <li>ガス料金診断サービスの提供</li>
+          <li>お問い合わせへの回答</li>
+          <li>サービスに関するご案内</li>
+        </ul>
+        <h3>3. 個人情報の第三者提供</h3>
+        <p>当社は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。ただし、ガス会社への切替手続きに必要な範囲で、提携ガス会社に情報を共有する場合があります。</p>
+        <h3>4. 個人情報の管理</h3>
+        <p>当社は、個人情報の漏洩、滅失またはき損の防止のため、適切な安全管理措置を講じます。</p>
+        <h3>5. お問い合わせ</h3>
+        <p>個人情報の取扱いに関するお問い合わせは、お問い合わせフォームよりご連絡ください。</p>
+      </div>
+    </div>
   </div>
 
   <script src="js/main.js"></script>

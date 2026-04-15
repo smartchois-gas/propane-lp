@@ -1,37 +1,39 @@
 /**
  * Smart Choice LP Landing Page - Main JavaScript
+ * Elite-level LP gas switching landing page
  * Vanilla JS only, no external dependencies
  */
 
 (function () {
   'use strict';
 
-  // ========================================
-  // DOM Ready
-  // ========================================
   document.addEventListener('DOMContentLoaded', function () {
+    initHeroCounter();
     initMobileMenu();
+    initHeaderScroll();
     initSmoothScroll();
     initScrollAnimations();
     initWizard();
     initUnitPriceChecker();
     initBarChartAnimation();
+    initAdvantagesMeter();
+    initFAQ();
     initFormValidation();
     initFloatingCTA();
+    initScrollTop();
     initFactsCounters();
     initPrivacyModal();
   });
 
   // ========================================
-  // Company List
+  // Hero Counter Animation
   // ========================================
-  var COMPANIES = [
-    'アジア商事', 'アストモス', '井村', 'イワタニ', '上野住設',
-    '香川プロパン', '神奈川液化', '熊谷商事', '河野商事', 'サントーコー',
-    '湘南液化ガス', 'JA', '大陽日酸', 'テーエス', 'トモプロ',
-    'ニチガス', '藤沢市ガス事業協同組合', 'フジプロ', '堀川産業',
-    'ミツウロコ', 'ミツワ産業', 'ミライフ', '山本松五郎商店', 'レモンガス'
-  ];
+  function initHeroCounter() {
+    var el = document.getElementById('heroCounter');
+    if (!el) return;
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    animateCounter(el, 0, target, 2500, '', '');
+  }
 
   // ========================================
   // Mobile Menu
@@ -39,7 +41,6 @@
   function initMobileMenu() {
     var hamburger = document.getElementById('hamburger');
     var nav = document.getElementById('nav');
-
     if (!hamburger || !nav) return;
 
     hamburger.addEventListener('click', function () {
@@ -50,8 +51,7 @@
       document.body.style.overflow = isOpen ? '' : 'hidden';
     });
 
-    var navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(function (link) {
+    nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         nav.classList.remove('is-open');
         hamburger.classList.remove('is-active');
@@ -72,6 +72,29 @@
   }
 
   // ========================================
+  // Header Scroll Effect
+  // ========================================
+  function initHeaderScroll() {
+    var header = document.getElementById('header');
+    if (!header) return;
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          if (window.scrollY > 50) {
+            header.classList.add('is-scrolled');
+          } else {
+            header.classList.remove('is-scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ========================================
   // Smooth Scroll
   // ========================================
   function initSmoothScroll() {
@@ -82,7 +105,6 @@
       var href = link.getAttribute('href');
       if (href === '#') return;
 
-      // Handle privacy link specially
       if (href === '#privacy') {
         e.preventDefault();
         showPrivacyModal();
@@ -93,7 +115,6 @@
       if (!target) return;
 
       e.preventDefault();
-
       var headerHeight = document.getElementById('header').offsetHeight;
       var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
@@ -111,9 +132,7 @@
     var elements = document.querySelectorAll('.reveal');
 
     if (!('IntersectionObserver' in window)) {
-      elements.forEach(function (el) {
-        el.classList.add('is-visible');
-      });
+      elements.forEach(function (el) { el.classList.add('is-visible'); });
       return;
     }
 
@@ -129,9 +148,7 @@
       rootMargin: '0px 0px -40px 0px'
     });
 
-    elements.forEach(function (el) {
-      observer.observe(el);
-    });
+    elements.forEach(function (el) { observer.observe(el); });
   }
 
   // ========================================
@@ -145,7 +162,7 @@
 
     if (!calcBtn) return;
 
-    // Show meter slip when company name is entered (on blur or Enter)
+    // Show meter slip on company input blur
     if (companyInput && meterSlip) {
       function showMeterSlip() {
         var value = companyInput.value.trim();
@@ -166,7 +183,6 @@
       });
     }
 
-    // Calculate results when button is clicked
     calcBtn.addEventListener('click', function () {
       var bill = parseInt(document.getElementById('wizardBill').value) || 0;
 
@@ -179,24 +195,20 @@
       var afterBill = Math.round(bill * (1 - reductionRate));
       var annualSavings = (bill - afterBill) * 12;
 
-      // Show result
       resultDiv.style.display = 'block';
 
       document.getElementById('resultPercent').textContent = Math.round(reductionRate * 100);
-      document.getElementById('resultBefore').textContent = '¥' + bill.toLocaleString();
-      document.getElementById('resultAfter').textContent = '¥' + afterBill.toLocaleString();
+      document.getElementById('resultBefore').textContent = '\u00A5' + bill.toLocaleString();
+      document.getElementById('resultAfter').textContent = '\u00A5' + afterBill.toLocaleString();
 
-      // Animate annual savings counter
       setTimeout(function () {
-        animateCounter(document.getElementById('resultAnnual'), 0, annualSavings, 2000, '¥', '');
+        animateCounter(document.getElementById('resultAnnual'), 0, annualSavings, 2000, '\u00A5', '');
       }, 500);
 
-      // Fire confetti
       setTimeout(function () {
         launchConfetti();
       }, 300);
 
-      // Scroll to result
       setTimeout(function () {
         var headerHeight = document.getElementById('header').offsetHeight;
         var targetPos = resultDiv.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
@@ -210,71 +222,77 @@
   // ========================================
   function renderMeterSlip(company, container) {
     var html = '<div class="wizard__meter-header">' +
-      '<span class="wizard__meter-company">' + company + '</span>' +
-      '<span class="wizard__meter-title">検針票（サンプル）</span>' +
+      '<span class="wizard__meter-company">' + escapeHTML(company) + '</span>' +
+      '<span class="wizard__meter-title">\u691C\u91DD\u7968\uFF08\u30B5\u30F3\u30D7\u30EB\uFF09</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">お客様番号</span>' +
+      '<span class="wizard__meter-row-label">\u304A\u5BA2\u69D8\u756A\u53F7</span>' +
       '<span class="wizard__meter-row-value">1234-5678</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">供給先住所</span>' +
-      '<span class="wizard__meter-row-value">神奈川県藤沢市○○ 1-2-3</span>' +
+      '<span class="wizard__meter-row-label">\u4F9B\u7D66\u5148\u4F4F\u6240</span>' +
+      '<span class="wizard__meter-row-value">\u795E\u5948\u5DDD\u770C\u85E4\u6CA2\u5E02\u25CB\u25CB 1-2-3</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">検針日</span>' +
-      '<span class="wizard__meter-row-value">2026年3月15日</span>' +
+      '<span class="wizard__meter-row-label">\u691C\u91DD\u65E5</span>' +
+      '<span class="wizard__meter-row-value">2026\u5E743\u670815\u65E5</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">前回検針日</span>' +
-      '<span class="wizard__meter-row-value">2026年2月14日</span>' +
+      '<span class="wizard__meter-row-label">\u524D\u56DE\u691C\u91DD\u65E5</span>' +
+      '<span class="wizard__meter-row-value">2026\u5E742\u670814\u65E5</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">前回指示数</span>' +
-      '<span class="wizard__meter-row-value">1,234.5 m³</span>' +
+      '<span class="wizard__meter-row-label">\u524D\u56DE\u6307\u793A\u6570</span>' +
+      '<span class="wizard__meter-row-value">1,234.5 m\u00B3</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">今回指示数</span>' +
-      '<span class="wizard__meter-row-value">1,249.8 m³</span>' +
+      '<span class="wizard__meter-row-label">\u4ECA\u56DE\u6307\u793A\u6570</span>' +
+      '<span class="wizard__meter-row-value">1,249.8 m\u00B3</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">使用量</span>' +
-      '<span class="wizard__meter-row-value">15.3 m³</span>' +
+      '<span class="wizard__meter-row-label">\u4F7F\u7528\u91CF</span>' +
+      '<span class="wizard__meter-row-value">15.3 m\u00B3</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">基本料金</span>' +
-      '<span class="wizard__meter-row-value">¥1,650</span>' +
+      '<span class="wizard__meter-row-label">\u57FA\u672C\u6599\u91D1</span>' +
+      '<span class="wizard__meter-row-value">\u00A51,650</span>' +
       '</div>' +
       '<div class="wizard__meter-highlight">' +
-      '<span class="wizard__meter-highlight-badge">&#x2B50; ここがポイント</span>' +
+      '<span class="wizard__meter-highlight-badge">\u2B50 \u3053\u3053\u304C\u30DD\u30A4\u30F3\u30C8</span>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">従量単価</span>' +
-      '<span class="wizard__meter-row-value">¥520 /m³</span>' +
+      '<span class="wizard__meter-row-label">\u5F93\u91CF\u5358\u4FA1</span>' +
+      '<span class="wizard__meter-row-value">\u00A5520 /m\u00B3</span>' +
       '</div>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">従量料金</span>' +
-      '<span class="wizard__meter-row-value">¥7,956</span>' +
+      '<span class="wizard__meter-row-label">\u5F93\u91CF\u6599\u91D1</span>' +
+      '<span class="wizard__meter-row-value">\u00A57,956</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">燃料費調整額</span>' +
-      '<span class="wizard__meter-row-value">¥-153</span>' +
+      '<span class="wizard__meter-row-label">\u71C3\u6599\u8CBB\u8ABF\u6574\u984D</span>' +
+      '<span class="wizard__meter-row-value">\u00A5-153</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">小計</span>' +
-      '<span class="wizard__meter-row-value">¥9,453</span>' +
+      '<span class="wizard__meter-row-label">\u5C0F\u8A08</span>' +
+      '<span class="wizard__meter-row-value">\u00A59,453</span>' +
       '</div>' +
       '<div class="wizard__meter-row">' +
-      '<span class="wizard__meter-row-label">消費税（10%）</span>' +
-      '<span class="wizard__meter-row-value">¥945</span>' +
+      '<span class="wizard__meter-row-label">\u6D88\u8CBB\u7A0E\uFF0810%\uFF09</span>' +
+      '<span class="wizard__meter-row-value">\u00A5945</span>' +
       '</div>' +
       '<div class="wizard__meter-row wizard__meter-row--total">' +
-      '<span class="wizard__meter-row-label"><strong>ご請求金額（税込）</strong></span>' +
-      '<span class="wizard__meter-row-value">¥10,398</span>' +
+      '<span class="wizard__meter-row-label"><strong>\u3054\u8ACB\u6C42\u91D1\u984D\uFF08\u7A0E\u8FBC\uFF09</strong></span>' +
+      '<span class="wizard__meter-row-value">\u00A510,398</span>' +
       '</div>' +
-      '<p class="wizard__meter-hint">※ 上記はサンプルです。実際の検針票と見比べてみてください。</p>';
+      '<p class="wizard__meter-hint">\u203B \u4E0A\u8A18\u306F\u30B5\u30F3\u30D7\u30EB\u3067\u3059\u3002\u5B9F\u969B\u306E\u691C\u91DD\u7968\u3068\u898B\u6BD4\u3079\u3066\u307F\u3066\u304F\u3060\u3055\u3044\u3002</p>';
 
     container.innerHTML = html;
+  }
+
+  function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
   }
 
   // ========================================
@@ -289,11 +307,10 @@
       var usage = parseFloat(document.getElementById('ucUsage').value);
 
       if (!bill || bill <= 0 || !usage || usage <= 0) {
-        alert('ガス代合計と使用量を入力してください');
+        alert('\u30AC\u30B9\u4EE3\u5408\u8A08\u3068\u4F7F\u7528\u91CF\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044');
         return;
       }
 
-      // Show loading
       var resultDiv = document.getElementById('ucResult');
       var loading = document.getElementById('ucLoading');
       var content = document.getElementById('ucResultContent');
@@ -302,49 +319,43 @@
       loading.style.display = 'block';
       content.style.display = 'none';
 
-      // Calculate: unitPrice = ((bill / 1.1) - 1500) / usage
       var unitPrice = Math.round(((bill / 1.1) - 1500) / usage);
 
-      // Show result after 2 second delay
       setTimeout(function () {
         loading.style.display = 'none';
         content.style.display = 'block';
 
         var priceEl = document.getElementById('ucResultPrice');
-        priceEl.textContent = '¥' + unitPrice.toLocaleString() + ' /m³';
+        priceEl.textContent = '\u00A5' + unitPrice.toLocaleString() + ' /m\u00B3';
 
-        // Color coding
         priceEl.className = 'unitcheck__result-price';
         var commentEl = document.getElementById('ucResultComment');
 
         if (unitPrice <= 350) {
           priceEl.classList.add('price-green');
-          commentEl.textContent = '適正な単価です。現在のガス会社を継続しても問題ありません。';
-          commentEl.style.color = '#27ae60';
+          commentEl.textContent = '\u9069\u6B63\u306A\u5358\u4FA1\u3067\u3059\u3002\u73FE\u5728\u306E\u30AC\u30B9\u4F1A\u793E\u3092\u7D99\u7D9A\u3057\u3066\u3082\u554F\u984C\u3042\u308A\u307E\u305B\u3093\u3002';
+          commentEl.style.color = '#16a34a';
         } else if (unitPrice <= 450) {
           priceEl.classList.add('price-yellow');
-          commentEl.textContent = 'やや高めの単価です。見直しで月々数千円の節約が可能です。';
+          commentEl.textContent = '\u3084\u3084\u9AD8\u3081\u306E\u5358\u4FA1\u3067\u3059\u3002\u898B\u76F4\u3057\u3067\u6708\u3005\u6570\u5343\u5186\u306E\u7BC0\u7D04\u304C\u53EF\u80FD\u3067\u3059\u3002';
           commentEl.style.color = '#d4a017';
         } else {
           priceEl.classList.add('price-red');
-          commentEl.textContent = '非常に高い単価です。今すぐ見直しをおすすめします。';
-          commentEl.style.color = '#e74c3c';
+          commentEl.textContent = '\u975E\u5E38\u306B\u9AD8\u3044\u5358\u4FA1\u3067\u3059\u3002\u4ECA\u3059\u3050\u898B\u76F4\u3057\u3092\u304A\u3059\u3059\u3081\u3057\u307E\u3059\u3002';
+          commentEl.style.color = '#dc2626';
         }
 
-        // Gauge position (range 200-700)
         var gaugePercent = Math.min(Math.max((unitPrice - 200) / 500 * 100, 0), 100);
         document.getElementById('ucGaugeFill').style.left = gaugePercent + '%';
 
-        // Marker position for 350 line
         var markerPercent = (350 - 200) / 500 * 100;
         document.getElementById('ucGaugeMarker').style.left = markerPercent + '%';
 
-        // Savings calculation
         var savingsDiv = document.getElementById('ucSavings');
         if (unitPrice > 335) {
           var diff = unitPrice - 335;
           var annualSavings = Math.round(diff * usage * 12);
-          document.getElementById('ucSavingsAmount').textContent = '¥' + annualSavings.toLocaleString();
+          document.getElementById('ucSavingsAmount').textContent = '\u00A5' + annualSavings.toLocaleString();
           savingsDiv.style.display = 'block';
         } else {
           savingsDiv.style.display = 'none';
@@ -383,14 +394,67 @@
         var targetHeight = bar.getAttribute('data-height');
         setTimeout(function () {
           bar.style.height = targetHeight + '%';
-          bar.classList.add('is-animated');
-          // Fade in price label after bar grows
           setTimeout(function () {
             if (prices[i]) prices[i].classList.add('is-visible');
           }, 600);
         }, i * 150);
       });
     }
+  }
+
+  // ========================================
+  // Advantages Meter Animation
+  // ========================================
+  function initAdvantagesMeter() {
+    var meters = document.querySelectorAll('.advantages__meter-fill');
+    if (!meters.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      meters.forEach(function (m) {
+        m.style.setProperty('--target-width', m.getAttribute('data-width') + '%');
+        m.classList.add('is-animated');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var fill = entry.target;
+          fill.style.setProperty('--target-width', fill.getAttribute('data-width') + '%');
+          fill.classList.add('is-animated');
+          observer.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    meters.forEach(function (m) { observer.observe(m); });
+  }
+
+  // ========================================
+  // FAQ Accordion
+  // ========================================
+  function initFAQ() {
+    var items = document.querySelectorAll('.faq__item');
+
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq__question');
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        // Close all
+        items.forEach(function (other) {
+          other.classList.remove('is-open');
+          other.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
   }
 
   // ========================================
@@ -467,14 +531,13 @@
     if (!form) return;
 
     var validationRules = {
-      name: { required: true, message: 'お名前を入力してください' },
-      address: { required: true, message: '住所を入力してください' },
-      phone: { required: true, pattern: /^[0-9\-\+\s()]{8,15}$/, message: '正しい電話番号を入力してください' },
-      bill: { required: true, message: '月の請求金額を入力してください' },
-      email: { required: false, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: '正しいメールアドレスを入力してください' }
+      name: { required: true, message: '\u304A\u540D\u524D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044' },
+      address: { required: true, message: '\u4F4F\u6240\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044' },
+      phone: { required: true, pattern: /^[0-9\-\+\s()]{8,15}$/, message: '\u6B63\u3057\u3044\u96FB\u8A71\u756A\u53F7\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044' },
+      bill: { required: true, message: '\u6708\u306E\u8ACB\u6C42\u91D1\u984D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044' },
+      email: { required: false, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: '\u6B63\u3057\u3044\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044' }
     };
 
-    // Real-time validation
     Object.keys(validationRules).forEach(function (fieldName) {
       var input = form.querySelector('[name="' + fieldName + '"]');
       if (!input) return;
@@ -490,13 +553,11 @@
       });
     });
 
-    // Form submission
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       var isValid = true;
 
-      // Validate required fields
       Object.keys(validationRules).forEach(function (fieldName) {
         var input = form.querySelector('[name="' + fieldName + '"]');
         if (!input) return;
@@ -505,13 +566,12 @@
         }
       });
 
-      // Validate privacy checkbox
       var privacyCheck = document.getElementById('formPrivacy');
       if (!privacyCheck.checked) {
         isValid = false;
         var privacyError = privacyCheck.closest('.form-group--privacy').querySelector('.form-error');
         if (privacyError) {
-          privacyError.textContent = 'プライバシーポリシーへの同意が必要です';
+          privacyError.textContent = '\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC\u3078\u306E\u540C\u610F\u304C\u5FC5\u8981\u3067\u3059';
         }
       }
 
@@ -528,7 +588,6 @@
       }
     });
 
-    // Privacy checkbox clear error
     var privacyCheck = document.getElementById('formPrivacy');
     if (privacyCheck) {
       privacyCheck.addEventListener('change', function () {
@@ -560,25 +619,20 @@
   function showFieldError(input, message) {
     input.classList.add('is-error');
     var errorEl = input.closest('.form-group').querySelector('.form-error');
-    if (errorEl) {
-      errorEl.textContent = message;
-    }
+    if (errorEl) errorEl.textContent = message;
   }
 
   function clearFieldError(input) {
     input.classList.remove('is-error');
     var errorEl = input.closest('.form-group').querySelector('.form-error');
-    if (errorEl) {
-      errorEl.textContent = '';
-    }
+    if (errorEl) errorEl.textContent = '';
   }
 
   function submitForm(form) {
     var submitBtn = document.getElementById('formSubmitBtn');
     submitBtn.disabled = true;
-    submitBtn.textContent = '送信中...';
+    submitBtn.textContent = '\u9001\u4FE1\u4E2D...';
 
-    // URLエンコード形式で送信（GASのe.parameterで確実に受け取るため）
     var formData = new FormData(form);
     var params = new URLSearchParams();
     formData.forEach(function (value, key) {
@@ -591,17 +645,14 @@
       body: params.toString()
     })
     .then(function () {
-      // Show success
       form.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-
       var headerHeight = document.getElementById('header').offsetHeight;
       var successEl = document.getElementById('formSuccess');
       var targetPosition = successEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     })
     .catch(function () {
-      // Even on error (CORS), show success since GAS typically still processes the data
       form.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     });
@@ -617,7 +668,7 @@
 
     if (!floatingCta || !heroSection) return;
 
-    function updateFloatingCTA() {
+    function update() {
       var heroBottom = heroSection.getBoundingClientRect().bottom;
       var formTop = formSection ? formSection.getBoundingClientRect().top : Infinity;
       var windowHeight = window.innerHeight;
@@ -633,14 +684,41 @@
     window.addEventListener('scroll', function () {
       if (!ticking) {
         window.requestAnimationFrame(function () {
-          updateFloatingCTA();
+          update();
           ticking = false;
         });
         ticking = true;
       }
     }, { passive: true });
 
-    updateFloatingCTA();
+    update();
+  }
+
+  // ========================================
+  // Scroll to Top
+  // ========================================
+  function initScrollTop() {
+    var btn = document.getElementById('scrollTop');
+    if (!btn) return;
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          if (window.scrollY > 600) {
+            btn.classList.add('is-visible');
+          } else {
+            btn.classList.remove('is-visible');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // ========================================
@@ -651,9 +729,7 @@
     if (!cards.length) return;
 
     if (!('IntersectionObserver' in window)) {
-      cards.forEach(function (el) {
-        finalizeCounter(el);
-      });
+      cards.forEach(function (el) { finalizeCounter(el); });
       return;
     }
 
@@ -676,9 +752,7 @@
       });
     }, { threshold: 0.5 });
 
-    cards.forEach(function (el) {
-      observer.observe(el);
-    });
+    cards.forEach(function (el) { observer.observe(el); });
   }
 
   function finalizeCounter(el) {
@@ -731,13 +805,20 @@
           document.body.style.overflow = '';
         }
       });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && privacySection.style.display !== 'none') {
+          privacySection.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
     }
   }
 
   function showPrivacyModal() {
     var privacySection = document.getElementById('privacy');
     if (privacySection) {
-      privacySection.style.display = 'block';
+      privacySection.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
   }
