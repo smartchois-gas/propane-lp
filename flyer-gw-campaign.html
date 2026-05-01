@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GW限定キャンペーン - スマートチョイス</title>
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Yu Gothic", "YuGothic", "Hiragino Sans", "Meiryo", sans-serif;
+    color: #000;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== トップバナー ===== */
+  .top-banner {
+    border-bottom: 3px solid #000;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+  }
+  .top-banner .period {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 2px 16px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+
+  /* ===== メインビジュアル ===== */
+  .main-visual {
+    text-align: center;
+    padding: 20px 24px 18px;
+    border-bottom: 2px solid #000;
+  }
+  .campaign-label {
+    display: inline-block;
+    border: 3px solid #000;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 4px 28px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+  .main-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .main-title .accent {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-bottom: 4px solid #000;
+    padding-bottom: 2px;
+  }
+  .main-title .small {
+    font-size: 18px;
+  }
+  .gift-card-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .gift-card-area .gift-illust {
+    flex-shrink: 0;
+  }
+  .gift-card-box {
+    display: inline-block;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .gift-card-box .gift-amount {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  .gift-card-box .gift-label {
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ===== セクション共通 ===== */
+  .section-heading {
+    font-size: 17px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+  }
+  .section-heading::before,
+  .section-heading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 36px;
+    height: 2px;
+    background: #000;
+  }
+  .section-heading::before { right: 100%; margin-right: 10px; }
+  .section-heading::after { left: 100%; margin-left: 10px; }
+
+  /* ===== お悩みセクション ===== */
+  .pain-section {
+    padding: 22px 28px 12px;
+    text-align: center;
+  }
+  .pain-list {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .pain-item {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px 12px 10px;
+    width: 155px;
+    text-align: center;
+  }
+  .pain-item .pain-illust {
+    margin-bottom: 4px;
+  }
+  .pain-item p {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* ===== 解決策セクション ===== */
+  .solution-section {
+    padding: 10px 28px 12px;
+    text-align: center;
+  }
+  .solution-arrow {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  .solution-box {
+    border: 3px double #000;
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .solution-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .solution-box h3 {
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  .merit-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .merit-item {
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 8px 12px;
+    text-align: center;
+    flex: 1;
+    max-width: 140px;
+  }
+  .merit-item .merit-value {
+    font-size: 22px;
+    font-weight: 900;
+  }
+  .merit-item .merit-label {
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 2px;
+    color: #333;
+  }
+
+  /* ===== 実例セクション ===== */
+  .example-section {
+    padding: 12px 28px;
+  }
+  .example-box {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .example-illust {
+    flex-shrink: 0;
+  }
+  .example-before-after {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  .ba-col { text-align: center; }
+  .ba-col .ba-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 2px;
+  }
+  .ba-col .ba-price {
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .ba-col .ba-price.before { text-decoration: line-through; color: #555; }
+  .ba-col .ba-price.after {
+    border: 2px solid #000;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+  .ba-col .ba-sub { font-size: 9px; color: #555; }
+  .ba-arrow { font-size: 22px; font-weight: 900; }
+  .example-result {
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 8px 14px;
+  }
+  .example-result .er-label { font-size: 10px; font-weight: 700; }
+  .example-result .er-value { font-size: 24px; font-weight: 900; }
+  .example-result .er-sub { font-size: 9px; color: #555; margin-top: 2px; }
+
+  /* ===== GW特典セクション ===== */
+  .bonus-section {
+    padding: 12px 28px;
+    text-align: center;
+  }
+  .bonus-box {
+    border: 4px double #000;
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .bonus-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .bonus-text { text-align: center; }
+  .bonus-tag {
+    display: inline-block;
+    border: 2px solid #000;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 2px 14px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .bonus-headline {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .bonus-amount {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+  .bonus-amount .big {
+    font-size: 38px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 2px;
+  }
+  .bonus-condition {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  /* ===== ステップセクション ===== */
+  .steps-section {
+    padding: 12px 28px;
+    text-align: center;
+  }
+  .steps-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .step-item {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px 8px 8px;
+    flex: 1;
+    max-width: 140px;
+    position: relative;
+  }
+  .step-num {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 2px solid #000;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 18px;
+  }
+  .step-item .step-illust {
+    margin: 2px 0 2px;
+  }
+  .step-item .step-text {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .step-arrow {
+    font-size: 18px;
+    margin-top: 16px;
+    font-weight: 900;
+  }
+
+  /* ===== CTA・QRセクション ===== */
+  .cta-section {
+    padding: 12px 28px;
+  }
+  .cta-box {
+    border: 3px solid #000;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .cta-qr {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .cta-qr img {
+    width: 96px;
+    height: 96px;
+    border: 1px solid #000;
+  }
+  .cta-qr p {
+    font-size: 10px;
+    margin-top: 3px;
+    font-weight: 700;
+  }
+  .cta-text { flex: 1; }
+  .cta-text h3 {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+  .cta-text p {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .cta-text .cta-phone {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  .cta-text .cta-hours {
+    font-size: 10px;
+    color: #555;
+  }
+
+  /* ===== フッター ===== */
+  .footer {
+    border-top: 2px solid #000;
+    padding: 10px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .company-info h4 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+  .footer .company-info p {
+    font-size: 10px;
+    color: #333;
+    line-height: 1.5;
+  }
+  .footer .deadline { text-align: right; }
+  .footer .deadline .dl-label { font-size: 10px; color: #555; }
+  .footer .deadline .dl-date {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    border: 2px solid #000;
+    padding: 2px 10px;
+    display: inline-block;
+    margin-top: 2px;
+  }
+
+  /* ===== 免責 ===== */
+  .disclaimer {
+    font-size: 9px;
+    color: #555;
+    text-align: center;
+    padding: 5px 28px;
+    line-height: 1.5;
+  }
+
+  /* ===== 印刷 ===== */
+  @media print {
+    body { background: #fff; }
+    .page { width: 100%; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- トップバナー -->
+  <div class="top-banner">
+    <span class="period">2026.5.1 thu ー 5.7 wed</span>
+    &emsp;7日間限定
+  </div>
+
+  <!-- メインビジュアル -->
+  <div class="main-visual">
+    <div class="campaign-label">GW 限定キャンペーン</div>
+    <div class="main-title">
+      ガス会社を変えるだけで<br>
+      <span class="small">年間</span><span class="accent">最大5万円</span><span class="small">おトク</span>
+    </div>
+    <div class="gift-card-area">
+      <!-- ギフトカードイラスト -->
+      <div class="gift-illust">
+        <svg width="70" height="50" viewBox="0 0 70 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="6" width="68" height="38" rx="4" stroke="#000" stroke-width="2" fill="none"/>
+          <line x1="1" y1="18" x2="69" y2="18" stroke="#000" stroke-width="1.5"/>
+          <path d="M35 6 C30 0, 20 2, 22 6" stroke="#000" stroke-width="1.5" fill="none"/>
+          <path d="M35 6 C40 0, 50 2, 48 6" stroke="#000" stroke-width="1.5" fill="none"/>
+          <line x1="35" y1="6" x2="35" y2="18" stroke="#000" stroke-width="1.5"/>
+          <circle cx="35" cy="6" r="2.5" fill="#000"/>
+          <text x="18" y="32" font-size="7" font-weight="900" fill="#000" font-family="sans-serif">GIFT CARD</text>
+          <text x="50" y="40" font-size="5" fill="#000" font-family="sans-serif">amazon</text>
+        </svg>
+      </div>
+      <div class="gift-card-box">
+        さらに今だけ！ Amazonギフト券<br>
+        <span class="gift-amount">10,000</span>円分プレゼント
+        <span class="gift-label">切替完了された方全員に進呈</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- お悩みセクション -->
+  <div class="pain-section">
+    <div class="section-heading">こんなお悩みありませんか？</div>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-illust">
+          <!-- 困った顔 -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="#000" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="15" r="1.5" fill="#000"/>
+            <circle cx="24" cy="15" r="1.5" fill="#000"/>
+            <path d="M11 25 C14 22, 22 22, 25 25" stroke="#000" stroke-width="1.5" fill="none"/>
+            <line x1="9" y1="10" x2="15" y2="12" stroke="#000" stroke-width="1.5"/>
+            <line x1="27" y1="10" x2="21" y2="12" stroke="#000" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <p>毎月のガス代が<br>高い気がする</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-illust">
+          <!-- はてなマーク付き顔 -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="#000" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="16" r="1.5" fill="#000"/>
+            <circle cx="24" cy="16" r="1.5" fill="#000"/>
+            <line x1="13" y1="24" x2="23" y2="24" stroke="#000" stroke-width="1.5"/>
+            <text x="27" y="10" font-size="10" font-weight="900" fill="#000" font-family="sans-serif">?</text>
+          </svg>
+        </div>
+        <p>適正価格が<br>わからない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-illust">
+          <!-- ため息顔 -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="#000" stroke-width="2" fill="none"/>
+            <line x1="10" y1="15" x2="15" y2="15" stroke="#000" stroke-width="1.5"/>
+            <line x1="21" y1="15" x2="26" y2="15" stroke="#000" stroke-width="1.5"/>
+            <ellipse cx="18" cy="25" rx="3" ry="2.5" stroke="#000" stroke-width="1.5" fill="none"/>
+            <path d="M30 8 C32 11, 34 10, 33 13" stroke="#000" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <p>切替って<br>面倒そう…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 解決策セクション -->
+  <div class="solution-section">
+    <div class="solution-arrow">▼</div>
+    <div class="solution-box">
+      <div class="solution-header">
+        <!-- チェックマークイラスト -->
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="13" stroke="#000" stroke-width="2" fill="none"/>
+          <path d="M9 15 L13 20 L22 10" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>すべてスマートチョイスが解決します</h3>
+      </div>
+      <div class="merit-row">
+        <div class="merit-item">
+          <div class="merit-value">0<span style="font-size:14px;">円</span></div>
+          <div class="merit-label">切替費用</div>
+        </div>
+        <div class="merit-item">
+          <div class="merit-value">10<span style="font-size:14px;">分</span></div>
+          <div class="merit-label">手続き時間</div>
+        </div>
+        <div class="merit-item">
+          <div class="merit-value">不要</div>
+          <div class="merit-label">工事</div>
+        </div>
+        <div class="merit-item">
+          <div class="merit-value">なし</div>
+          <div class="merit-label">ガス停止</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 実例セクション -->
+  <div class="example-section">
+    <div class="example-box">
+      <!-- 家イラスト -->
+      <div class="example-illust">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 4 L4 20 L10 20 L10 38 L34 38 L34 20 L40 20 Z" stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <rect x="17" y="24" width="10" height="14" stroke="#000" stroke-width="1.5" fill="none"/>
+          <line x1="22" y1="24" x2="22" y2="38" stroke="#000" stroke-width="1"/>
+          <rect x="14" y="12" width="5" height="5" stroke="#000" stroke-width="1" fill="none"/>
+          <circle cx="36" cy="10" r="4" stroke="#000" stroke-width="1.5" fill="none"/>
+          <text x="33.5" y="12.5" font-size="5" font-weight="900" fill="#000" font-family="sans-serif">¥</text>
+        </svg>
+      </div>
+      <div class="example-before-after">
+        <div class="ba-col">
+          <div class="ba-label">切替前</div>
+          <div class="ba-price before">12,400円</div>
+          <div class="ba-sub">従量単価 580円/m³</div>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-col">
+          <div class="ba-label">切替後</div>
+          <div class="ba-price after">7,800円</div>
+          <div class="ba-sub">従量単価 350円/m³</div>
+        </div>
+      </div>
+      <div class="example-result">
+        <div class="er-label">年間おトク額</div>
+        <div class="er-value">55,200円</div>
+        <div class="er-sub">※埼玉県 4人家族の実例</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GW特典セクション -->
+  <div class="bonus-section">
+    <div class="bonus-box">
+      <div class="bonus-inner">
+        <!-- プレゼントイラスト -->
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="22" width="44" height="30" rx="3" stroke="#000" stroke-width="2" fill="none"/>
+          <rect x="2" y="16" width="52" height="10" rx="3" stroke="#000" stroke-width="2" fill="none"/>
+          <line x1="28" y1="16" x2="28" y2="52" stroke="#000" stroke-width="2"/>
+          <path d="M28 16 C24 6, 14 8, 16 14 C17 16, 22 16, 28 16" stroke="#000" stroke-width="2" fill="none"/>
+          <path d="M28 16 C32 6, 42 8, 40 14 C39 16, 34 16, 28 16" stroke="#000" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="16" r="2" fill="#000"/>
+          <text x="14" y="8" font-size="8" font-weight="900" fill="#000" font-family="sans-serif">GW</text>
+        </svg>
+        <div class="bonus-text">
+          <div class="bonus-tag">GW限定 特別特典</div>
+          <div class="bonus-headline">5月1日〜7日にお問い合わせいただき<br>切替が完了した方全員に</div>
+          <div class="bonus-amount">Amazonギフト券 <span class="big">10,000</span>円分</div>
+          <div class="bonus-condition">
+            ※LPガスをご利用中の方が対象です<br>
+            ※切替完了後にギフト券をお届けします
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ステップセクション -->
+  <div class="steps-section">
+    <div class="section-heading">かんたん3ステップ</div>
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-illust">
+          <!-- スマホ+QR -->
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="2" width="16" height="26" rx="3" stroke="#000" stroke-width="1.5" fill="none"/>
+            <line x1="7" y1="6" x2="23" y2="6" stroke="#000" stroke-width="1"/>
+            <line x1="7" y1="24" x2="23" y2="24" stroke="#000" stroke-width="1"/>
+            <rect x="11" y="10" width="4" height="4" stroke="#000" stroke-width="1" fill="none"/>
+            <rect x="17" y="10" width="4" height="4" stroke="#000" stroke-width="1" fill="none"/>
+            <rect x="11" y="16" width="4" height="4" stroke="#000" stroke-width="1" fill="none"/>
+            <rect x="17" y="16" width="4" height="4" fill="#000"/>
+            <circle cx="15" cy="26" r="1" fill="#000"/>
+          </svg>
+        </div>
+        <div class="step-text">QRコードから<br>料金シミュレーション</div>
+      </div>
+      <div class="step-arrow">▶</div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-illust">
+          <!-- 検針票 -->
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2" width="20" height="26" rx="2" stroke="#000" stroke-width="1.5" fill="none"/>
+            <line x1="9" y1="8" x2="21" y2="8" stroke="#000" stroke-width="1"/>
+            <line x1="9" y1="12" x2="21" y2="12" stroke="#000" stroke-width="1"/>
+            <line x1="9" y1="16" x2="17" y2="16" stroke="#000" stroke-width="1"/>
+            <circle cx="21" cy="21" r="5" stroke="#000" stroke-width="1.5" fill="none"/>
+            <path d="M19 21 L21 23 L24 19" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-text">検針票で<br>料金チェック</div>
+      </div>
+      <div class="step-arrow">▶</div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-illust">
+          <!-- 喜ぶ人 -->
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="10" r="5" stroke="#000" stroke-width="1.5" fill="none"/>
+            <circle cx="13" cy="9" r="0.8" fill="#000"/>
+            <circle cx="17" cy="9" r="0.8" fill="#000"/>
+            <path d="M13 12 C14 13.5, 16 13.5, 17 12" stroke="#000" stroke-width="1" fill="none"/>
+            <path d="M15 15 L15 23" stroke="#000" stroke-width="1.5"/>
+            <path d="M15 17 L8 13" stroke="#000" stroke-width="1.5"/>
+            <path d="M15 17 L22 13" stroke="#000" stroke-width="1.5"/>
+            <path d="M15 23 L10 29" stroke="#000" stroke-width="1.5"/>
+            <path d="M15 23 L20 29" stroke="#000" stroke-width="1.5"/>
+            <text x="1" y="7" font-size="5" font-weight="700" fill="#000" font-family="sans-serif">¥</text>
+            <text x="24" y="7" font-size="5" font-weight="700" fill="#000" font-family="sans-serif">¥</text>
+          </svg>
+        </div>
+        <div class="step-text">切替完了で<br>ギフト券GET</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA・QR -->
+  <div class="cta-section">
+    <div class="cta-box">
+      <div class="cta-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=https%3A%2F%2Fsmartchois-gas.github.io%2Fpropane-lp%2Fform.html&amp;color=000000" alt="料金シミュレーションQRコード">
+        <p>QRコードを読み取り</p>
+      </div>
+      <div class="cta-text">
+        <h3>今すぐ料金シミュレーションする</h3>
+        <p>
+          スマートフォンのカメラでQRコードを読み取るだけ。<br>
+          検針票をご用意の上、かんたん入力で診断できます。<br>
+          お電話でもお気軽にどうぞ。
+        </p>
+        <div class="cta-phone">0120-534-226</div>
+        <div class="cta-hours">受付時間 10:00〜20:00（土日祝も受付可）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <div class="company-info">
+      <h4>スマートチョイス</h4>
+      <p>〒231-0002 神奈川県横浜市中区海岸通4-23 マリンビル8F</p>
+    </div>
+    <div class="deadline">
+      <div class="dl-label">キャンペーン締切</div>
+      <div class="dl-date">2026年5月7日（水）</div>
+    </div>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    ※本チラシはスマートチョイスが発行したものであり、現在ご利用中のガス会社が発行したものではございません。
+    ※ギフト券の進呈は切替完了後となります。
+    ※節約金額は使用量やガス会社により異なります。
+  </div>
+
+</div>
+
+</body>
+</html>
